@@ -1,10 +1,24 @@
 var mongoose = require("mongoose");
 
 var userSchema = new mongoose.Schema({
-  userName: String,
-  userId: Number,
-  avatar: String,
-  password: String,
+  // 用户名
+  userName: {
+    type: String,
+    require: true,
+  },
+
+  // 头像url
+  avatar: {
+    type: String,
+  },
+
+  // 密码
+  password: {
+    type: String,
+    require: true,
+  },
+
+  // 账户创建时间
   createTime: {
     type: Date,
     // 设置默认值

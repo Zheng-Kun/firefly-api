@@ -7,11 +7,32 @@ module.exports = {
    * 注册
    */
   register: function (req, res, next) {
-    var user = new User(req.body)
-    user.save((err) => {
-      if(err) { return next(err)};
+    const {userName, password} = req.body;
+    if(!userName || !password){
+      console.log(userName);
+      return res.json({code: "604", msg: "用户名或密码不能为空"});
+    }
+    User.findOne({userName}, function(err, doc){
+      if (err) {
+        return next(err);
+      }
 
-      return res.json("register success");
+      if (doc) {
+        return res.json({code: 602, msg: "用户名已存在", data: doc});
+      }
+
+      const newUser = User({userName, password});
+      newUser.save((err, doc) => {
+        if(err) { return res.json({code: 603, msg: "服务端错误，保存用户信息失败"})}
+        const {userName, _id} = doc;
+        res.cookie({"userId": _id});
+        return res.json({
+          code: 200,
+          msg: "注册成功",
+          data:{userName, _id}
+        });
+      })
+
     })
   },
 
@@ -19,13 +40,27 @@ module.exports = {
    * 登陆
    */
   login: function(req, res, next) {
+    const {userName,password} = req.body;
+    console.log(userName, password);
     // var user = req.body;
-    User
-    .find()
-    .exec(function(err, docs) {
+    if(!userName || !password) { 
+      return res.json({
+        code: "604",
+        message: "用户名或密码不能为空"
+      })
+    }
+    User.findOne({userName, password}, function(err, doc){
+      if(!doc){return res.json({code: 601, msg: "用户名或密码错误"})}
+      if (err) {
+        return next(err);
+      }
+      res.cookie("userId",doc._id)
+      return res.json({code: 200, data: doc})
+    })
+    /* .exec(function(err, docs) {
       if(err) { return next(err); }
       return res.json()
-    })
+    }) */
   }
 
 }
