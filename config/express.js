@@ -6,9 +6,14 @@ module.exports = function () {
   console.log('init expesss...');
   var app = express();
 
+  app.set('views', './views')
+  app.set('view engine', 'pug')
   app.use(bodyParser.json());
   app.use(express.static("./public"));
 
+  // 前端路由
+  require("../routes/all.fe.routes")(app);
+  // 后端接口路由
   require('../app/routes/all.api.routes')(app);
 
   // 处理所有未知的请求

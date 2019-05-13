@@ -5,13 +5,25 @@
   "description": "A Simple Video Player",
   "main": "bin/www",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www",
+    "pack": "webpack"
   },
   "author": "Zhengkun",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.0",
     "express": "^4.13.3",
-    "mongoose": "^4.1.8"
+    "handlebars": "^4.1.2",
+    "mongoose": "^4.1.8",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "css-loader": "^2.1.1",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
   }
 }
