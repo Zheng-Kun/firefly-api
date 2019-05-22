@@ -13,8 +13,8 @@ module.exports = {
   }, */
   // 多入口与多出口
   entry: { //入口文件
-    home: './src/home.js',
-    player: "./src/player.js"
+    home: './src/page/home/home.js',
+    player: "./src/page/player/player.js"
   },
   output: { //出口
     filename: "[name].bundle.js", // 打包后的文件名
@@ -24,15 +24,24 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },{
-        test: /\.less$/,
+        test: /\.(less|css)$/,
         use: ['style-loader', 'css-loader', 'less-loader']
       }, {
         test: /\.hbs$/,
         loader: 'handlebars-loader'
+      },{
+        test: /\.js$/,
+        use: [{
+          loader: 'expose-loader',
+          options: 'jQuery'
+        }, {
+          loader: 'expose-loader',
+          options: '$'
+        }]
+      },{
+        test: /\.(png|jpg|jpeg)$/,
+        loader: 'url-loader?limit=8192'
       }
-    ]
-  }
+    ],
+  },
 }

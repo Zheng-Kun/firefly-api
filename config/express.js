@@ -1,16 +1,23 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
+let busboy = require('connect-busboy');
+
 
 module.exports = function () {
   console.log('init expesss...');
   var app = express();
+  console.log("direname:",__dirname)
 
   app.set('views', './views')
   app.set('view engine', 'pug')
   app.use(bodyParser.json());
-  app.use(express.static("./public"));
-
+  app.use(express.static("dist"));
+  // app.use(express.static("./dist"));
+  // app.use(express.static("../dist"));
+  // app.use(express.static("../../dist"));
+  // app.use(express.static("src"));
+  app.use(busboy());
   // 前端路由
   require("../routes/all.fe.routes")(app);
   // 后端接口路由

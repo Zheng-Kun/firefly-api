@@ -1,0 +1,36 @@
+@import "../../less/common.less";
+.header{
+  height: 100%;
+  width: 1160px;
+  margin: 0 auto;
+  .item{
+    // margin:0 12px;
+
+  }
+  .to-home-btn{
+    padding:0 12px; 
+    display: inline-block;
+    line-height: 42px;
+    &:hover{
+      background-color: hsla(0, 0%, 100%, .3);
+      .ff-logo{
+        background-color: pink;
+        border-radius: 50%;
+        transition: all 800ms;
+      }
+    }
+    .ff-logo{
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      vertical-align: middle;
+      background: url("../../../static/icon/firefly.png");
+      background-size: 100% 100%;
+      transition: all 800ms;
+    }
+    .main-site{
+      font-size: 16px;
+      color: #222;
+    }
+  }
+}

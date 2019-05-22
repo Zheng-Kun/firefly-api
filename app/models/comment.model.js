@@ -1,31 +1,35 @@
 let mongoose = require("mongoose");
 
-let userSchema = new mongoose.Schema({
+let commentSchema = new mongoose.Schema({
   // 用户名
-  userName: {
+  content: {
     type: String,
     require: true,
   },
 
-  // 头像url
-  avatar: {
-    type: String,
-  },
-
-  // 密码
-  password: {
+  // video id
+  vid: {
     type: String,
     require: true,
   },
 
-  // 账户创建时间
+  author: {
+    type: String,
+    require: true,
+  },
+  position: {
+    type: Int,
+    default: 0,
+  }
+
+  // 评论时间
   createTime: {
     type: Date,
     // 设置默认值
     default: Date.now
   }
-  
+
 })
 
 // 生成模型
-let User = mongoose.model("User", userSchema); 
+let User = mongoose.model("User", userSchema);

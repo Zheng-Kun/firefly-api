@@ -1,12 +1,43 @@
-var mongoose = require("mongoose");
+let mongoose = require("mongoose");
 
-var videoSchema = new mongoose.SchemaType({
-  videoName: String,
-  videoId: String,
-  author: String,
-  updateDate: Date,
-  videoUrl: String,
+let videoSchema = new mongoose.Schema({
+  /**
+   * 视频名
+   */
+  videoName: {
+    type: String,
+    require: true,
+  },
+  /**
+   * 上传的用户名
+   */
+  author: {
+    type: String,
+  },
+  /**
+   * 上传的时间
+   */
+  updateDate: {
+    type: Date,
+    default: Date.now
+  },
+  /**
+   * 视频的 rtmp 推流链接
+   */
+  videoUrl: {
+    type: String,
+    require: true,
+  },
+  /**
+   * 视频的类别
+   */
+  videoType: {
+    type: String,
+  },
+  viewCounts: {
+    type: Number,
+  }
 })
 
 // 生成模型
-var Video = mongoose.model("Video", videoSchema);
+let Video = mongoose.model("Video", videoSchema);

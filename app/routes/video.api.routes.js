@@ -1,11 +1,9 @@
-// var VideoController = require("../controllers/video.controller")
+var VideoController = require("../controllers/video.controller")
 
-// module.exports = function(app) {
-//   /**
-//    * 路由参数设置
-//    */
-//   app.router("/video/vid").get(VideoController.getVideo);
+let express = require("express");
+var router = express.Router();
 
-//   app.param("vid", VideoController.getById)
+// 上传视频
+router.post("/upload",VideoController.upload);
 
-// }
+module.exports = router;

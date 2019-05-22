@@ -9,6 +9,7 @@ module.exports = function () {
   
   // 导入 model
   require('../app/models/user.model');
+  require('../app/models/video.model');
 
   return db;
 };
