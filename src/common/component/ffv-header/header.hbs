@@ -1,19 +1,35 @@
 <div class="header">
-  <a href="" class="to-home-btn item">
-    <span class="ff-logo"></span>
+
+  <a href="/" class="to-home-btn item" title="Firefly Video">
+    <span class="ff-logo icon"></span>
     <span class="main-site">主站</span>
   </a>
-  <span class="upload-btn item">
-    上传视频
-  </span>
-  <span class="user item">
-    {{#if userName}}
-    <div>
-      <span>{{userName}}</span>
-      <span>退出登陆</span>
-    </div>
-    {{else}}
-    <span class="login-btn">登陆</span>
-    {{/if}}
-  </span>
+
+  <div class="header-right">
+
+    <span class="upload-btn item">
+      <span class="upload-img icon"></span>
+      <span class="upload-title">上传视频</span>    
+    </span>
+
+    <span class="user">
+      {{#if userName}}
+      <span class="avatar" style="background-image: url({{avatar}})" title="{{userName}}">
+        <ul class="user-operate">
+          <li class="username">
+            <span class="name-icon user-icon"></span>
+            {{userName}}
+          </li>
+          <li class="logout">
+          <span class="logout-icon user-icon"></span>   
+            退出登陆
+          </li>
+        </ul>
+      </span>
+      {{else}}
+      <span class="avatar gray login-btn" title="点击登陆"></span>
+      {{/if}}
+    </span>
+
+  </div>
 </div>

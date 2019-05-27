@@ -1,25 +1,31 @@
 @import "../../less/common.less";
-.header{
+
+.header {
+  position: relative;
   height: 100%;
   width: 1160px;
   margin: 0 auto;
-  .item{
-    // margin:0 12px;
 
-  }
-  .to-home-btn{
-    padding:0 12px; 
-    display: inline-block;
-    line-height: 42px;
-    &:hover{
+  .item {
+
+    // margin:0 12px;
+    &:hover {
       background-color: hsla(0, 0%, 100%, .3);
-      .ff-logo{
+
+      .icon {
         background-color: pink;
         border-radius: 50%;
         transition: all 800ms;
       }
     }
-    .ff-logo{
+  }
+
+  .to-home-btn {
+    padding: 0 12px;
+    display: inline-block;
+    line-height: 42px;
+    cursor: pointer;
+    .ff-logo {
       display: inline-block;
       height: 20px;
       width: 20px;
@@ -28,9 +34,109 @@
       background-size: 100% 100%;
       transition: all 800ms;
     }
-    .main-site{
+
+    .main-site {
       font-size: 16px;
       color: #222;
+    }
+  }
+
+  .header-right {
+    display: inline-block;
+    line-height: 42px;
+    position: absolute;
+    right: 0;
+    height: 100%;
+
+    .upload-btn {
+      display: inline-block;
+      line-height: 42px;
+      padding: 0 12px;
+      cursor: pointer;
+
+      .upload-img {
+        display: inline-block;
+        line-height: 42px;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        margin-right: 12px;
+        background-image: url("../../../static/icon/upload.png");
+        background-size: 100% 100%;
+        // transition: all 800ms;
+      }
+
+      .upload-title {
+        line-height: 42px;
+        font-size: 16px;
+        color: #222;
+      }
+    }
+
+    .user {
+      cursor: pointer;
+
+      .avatar {
+        // position: relative;
+        line-height: 42px;
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        vertical-align: middle;
+        border-radius: 50%;
+        background-color: #777;
+        background-size: cover;
+        background-position: center center;
+        &.gray{
+          background-image: url("../../../static/icon/avatar-gray.png")
+        }
+        .user-operate {
+          position: absolute;
+          top: 42px;
+          overflow: hidden;
+          right: -48px;
+          height: 0;
+          border-radius: 2px;
+          background-color: hsla(0, 0%, 100%, .4);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+          transition: all 600ms;
+
+          li {
+            line-height: 42px;
+            padding: 0 12px;
+
+            .user-icon {
+              display: inline-block;
+              line-height: 42px;
+              width: 16px;
+              height: 16px;
+              margin-right: 12px;
+              vertical-align: middle;
+              background-size: cover;
+              background-position: center center;
+
+              &.name-icon {
+                background-image: url("../../../static/icon/user.png");
+              }
+
+              &.logout-icon {
+                background-image: url("../../../static/icon/logout.png");
+              }
+
+            }
+
+            &:hover {
+              background-color: hsla(0, 0%, 100%, .3);
+              transition: all 600ms;
+            }
+          }
+        }
+
+        &:hover .user-operate {
+          height: 84px;
+          transition: all 600ms;
+        }
+      }
     }
   }
 }

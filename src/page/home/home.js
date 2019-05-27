@@ -1,6 +1,7 @@
 // 入口文件d
 require("expose-loader?$!jquery");
 import Header from "../../common/component/ffv-header/header"
+import Alert from "../../common/component/ffv-alert/alert"
 export default class Home{
   constructor(){
     this.$headerContainer = $("#header-box");
@@ -18,6 +19,10 @@ export default class Home{
     let header = new Header({
       $container: this.$headerContainer,
     });
+
+    new Alert();
+
+    
   }
 }
 
