@@ -1,5 +1,6 @@
 import Cookie from "js-cookie";
 import header from "./header.hbs";
+import LoginBox from "../ffv-login/login";
 import "./header.less"
 export default class Header{
   constructor(props){
@@ -13,11 +14,25 @@ export default class Header{
     this.userName = null;
     this.avatar = "../../../static/icon/avatar-gray.png";
     this._render();
+    this._bind();
   }
 
   _render(){
     let $header = $(header(this));
     console.log(this.$container);
     this.$container.empty().append($header);
+  }
+
+
+  _bind(){
+    /**
+     * 登陆事件绑定
+     */
+    console.log("登陆事件绑定");
+    $(".login-btn").on("click",ev => {
+      console.log("点击登陆按钮");
+      ev.preventDefault();
+      new LoginBox();
+    });
   }
 }

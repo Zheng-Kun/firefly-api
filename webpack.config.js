@@ -1,4 +1,5 @@
 let path = require('path');
+let webpack =require("webpack");
 module.exports = {
   mode: 'development', // 模式 production development
   /* devServer: {
@@ -29,7 +30,12 @@ module.exports = {
       }, {
         test: /\.hbs$/,
         loader: 'handlebars-loader'
-      },{
+      },
+      /* {
+        test: require.resolve('jquery'),
+        loader: 'expose?jQuery!expose?$'
+      } ,*/
+      /* {
         test: /\.js$/,
         use: [{
           loader: 'expose-loader',
@@ -38,10 +44,19 @@ module.exports = {
           loader: 'expose-loader',
           options: '$'
         }]
-      },{
+      }, */
+      {
         test: /\.(png|jpg|jpeg)$/,
         loader: 'url-loader?limit=8192'
       }
     ],
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ],
+
+
 }

@@ -1,5 +1,7 @@
 // 入口文件d
-require("expose-loader?$!jquery");
+// require("expose-loader?$!jquery");
+
+import $ from "jquery";
 import Header from "../../common/component/ffv-header/header"
 import Alert from "../../common/component/ffv-alert/alert"
 export default class Home{

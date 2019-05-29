@@ -81,54 +81,10 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/page/player/player.js-exposed");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/page/player/player.js");
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./node_modules/_expose-loader@0.7.5@expose-loader/index.js?$!./node_modules/_webpack@4.31.0@webpack/buildin/global.js-exposed":
-/*!***********************************************************************************************!*\
-  !*** ./node_modules/_expose-loader@0.7.5@expose-loader?$!(webpack)/buildin/global.js-exposed ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("/* WEBPACK VAR INJECTION */(function(global) {module.exports = global[\"$\"] = __webpack_require__(/*! -!./global.js */ \"./node_modules/_webpack@4.31.0@webpack/buildin/global.js\");\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./global.js */ \"./node_modules/_webpack@4.31.0@webpack/buildin/global.js-exposed\")))\n\n//# sourceURL=webpack:///(webpack)/buildin/global.js-exposed?./node_modules/_expose-loader@0.7.5@expose-loader?$");
-
-/***/ }),
-
-/***/ "./node_modules/_expose-loader@0.7.5@expose-loader/index.js?$!./src/page/player/player.js-exposed":
-/*!***********************************************************************************************!*\
-  !*** ./node_modules/_expose-loader@0.7.5@expose-loader?$!./src/page/player/player.js-exposed ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("/* WEBPACK VAR INJECTION */(function(global) {module.exports = global[\"$\"] = __webpack_require__(/*! -!./player.js */ \"./src/page/player/player.js\");\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/_webpack@4.31.0@webpack/buildin/global.js */ \"./node_modules/_webpack@4.31.0@webpack/buildin/global.js-exposed\")))\n\n//# sourceURL=webpack:///./src/page/player/player.js-exposed?./node_modules/_expose-loader@0.7.5@expose-loader?$");
-
-/***/ }),
-
-/***/ "./node_modules/_webpack@4.31.0@webpack/buildin/global.js":
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn this;\n})();\n\ntry {\n\t// This works if eval is allowed (see CSP)\n\tg = g || new Function(\"return this\")();\n} catch (e) {\n\t// This works if the window reference is available\n\tif (typeof window === \"object\") g = window;\n}\n\n// g can still be undefined, but nothing to do about it...\n// We return undefined, instead of nothing here, so it's\n// easier to handle this case. if(!global) { ...}\n\nmodule.exports = g;\n\n\n//# sourceURL=webpack:///(webpack)/buildin/global.js?");
-
-/***/ }),
-
-/***/ "./node_modules/_webpack@4.31.0@webpack/buildin/global.js-exposed":
-/*!*******************************************!*\
-  !*** (webpack)/buildin/global.js-exposed ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("/* WEBPACK VAR INJECTION */(function(global) {module.exports = global[\"jQuery\"] = __webpack_require__(/*! -!./node_modules/_expose-loader@0.7.5@expose-loader?$!./global.js */ \"./node_modules/_expose-loader@0.7.5@expose-loader/index.js?$!./node_modules/_webpack@4.31.0@webpack/buildin/global.js-exposed\");\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./global.js */ \"./node_modules/_webpack@4.31.0@webpack/buildin/global.js-exposed\")))\n\n//# sourceURL=webpack:///(webpack)/buildin/global.js-exposed?");
-
-/***/ }),
 
 /***/ "./src/page/player/player.js":
 /*!***********************************!*\
@@ -138,17 +94,6 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {module.exports = global[\"jQ
 /***/ (function(module, exports) {
 
 eval("\n\n//# sourceURL=webpack:///./src/page/player/player.js?");
-
-/***/ }),
-
-/***/ "./src/page/player/player.js-exposed":
-/*!*******************************************!*\
-  !*** ./src/page/player/player.js-exposed ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("/* WEBPACK VAR INJECTION */(function(global) {module.exports = global[\"jQuery\"] = __webpack_require__(/*! -!./node_modules/_expose-loader@0.7.5@expose-loader?$!./player.js */ \"./node_modules/_expose-loader@0.7.5@expose-loader/index.js?$!./src/page/player/player.js-exposed\");\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/_webpack@4.31.0@webpack/buildin/global.js */ \"./node_modules/_webpack@4.31.0@webpack/buildin/global.js-exposed\")))\n\n//# sourceURL=webpack:///./src/page/player/player.js-exposed?");
 
 /***/ })
 

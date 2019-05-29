@@ -1,4 +1,5 @@
 import './alert.less';
+import $ from "jquery";
 
 export default class Alert{
   constructor(props){
@@ -8,10 +9,16 @@ export default class Alert{
       delay: 3000,
     },props)
 
+    this.delay += 1000;
+
     this._render();
   }
 
   _render(){
-    $("body").append(`<span id="global-alert" class="${this.type}">${this.message}</span>`);
+    let $html = `<span id="global-alert" class="${this.type} show">${this.message}</span>`
+    $("body").append($html);
+    setTimeout(($) => {
+      document.getElementById("global-alert").classList.remove("show");
+    }, this.delay + 1000);
   }
 }
