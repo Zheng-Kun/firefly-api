@@ -96,7 +96,11 @@ export default class Login{
         this._close();
         this._renderHeader();
 
-        //TODO render header
+      }else{
+        new Alert({
+          type: "error",
+          message: "resp.data.message",
+        });
       }
     })
 
