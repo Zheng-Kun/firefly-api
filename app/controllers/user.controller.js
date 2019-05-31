@@ -50,7 +50,7 @@ module.exports = {
       })
     }
     User.findOne({userName, password}, function(err, doc){
-      if(!doc){return res.json({code: 601, msg: "用户名或密码错误"})}
+      if(!doc){return res.json({code: 601, message: "用户名或密码错误"})}
       if (err) {
         return next(err);
       }
