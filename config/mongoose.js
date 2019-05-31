@@ -6,6 +6,8 @@ module.exports = function () {
   var db = mongoose.connect(config.mongodb, {
     useMongoClient: true,
   });
+
+  db.on('error', console.error.bind(console, 'MongoDB 连接错误：'));
   
   // 导入 model
   require('../app/models/user.model');

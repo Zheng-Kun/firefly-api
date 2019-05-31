@@ -1,7 +1,7 @@
 let userRouter = require("./user.api.routes")
 let videoRouter = require("./video.api.routes")
 
-module.exports = function(app,io) {
+module.exports = function(app) {
 
   /* let videoIo = io.of('api/video/upload').
   on('connection', () => {
