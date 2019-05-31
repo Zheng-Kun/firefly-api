@@ -12,7 +12,9 @@ export default class Home{
     this.$footerContainer = $("#footer-box");
 
     // 环境变量配置
-    new Config();
+    new Config({
+      env: "pro",
+    });
 
     console.log("render home page!!!")
     this._render();
