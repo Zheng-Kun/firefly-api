@@ -9,6 +9,11 @@ module.exports = function () {
   var app = express();
   console.log("direname:",__dirname)
 
+  const server = require('http').createServer(app);
+  const io = require('socket.io')(server);
+  app.set("socketio", io)
+
+
   app.set('views', './views')
   app.set('view engine', 'pug')
   app.use(bodyParser.json());
@@ -19,9 +24,10 @@ module.exports = function () {
   // app.use(express.static("src"));
   app.use(busboy());
   // 前端路由
+  
   require("../routes/all.fe.routes")(app);
   // 后端接口路由
-  require('../app/routes/all.api.routes')(app);
+  require('../app/routes/all.api.routes')(app,io);
 
   // 处理所有未知的请求
   app.use(function (req, res, next) {
@@ -44,5 +50,5 @@ module.exports = function () {
     }
   });
 
-  return app;
+  return server;
 };

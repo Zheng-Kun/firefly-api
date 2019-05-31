@@ -6,7 +6,54 @@ const VIDEO_PATH = config.videoPath;
 module.exports = {
 
   upload: (req, res, next) => {
-    console.log("router is OK");
+
+    // 跨域，因前端文件是直接拖到浏览器上运行以file://形式访问，与后台不在同一域，所以要跨域处理
+    res.writeHead(200, {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST'
+    })
+
+    let io = req.app.get("sockitio");
+    let videoIo = io.
+    on('connection', () => {
+      /* … */
+    });
+
+    const {userName, videoName, videoType, fileSize, fileName} = req.body;
+    // const size = params.size
+    // const name = params.name
+    const buf = []
+    let count = 0
+
+    // 接收数据事件，会多次触发，chunk的格式为nodejs的Butter，大小不大于65535
+    req.on('data', (chunk) => {
+      buf.push(chunk)
+      count += chunk.length
+      // 将进度返回给前端
+      videoIo.emit('progress', Math.round(count / fileSize * 100))
+    })
+
+    // 数据接收结束保存
+    req.on('end', () => {
+      // 创建流（stream）
+      const ws = fs.createWriteStream(path.resolve(__dirname, '/../../../../video-lib', fileName))
+      // 将暂存好的Buffer写入流
+      buf.forEach(i => {
+        ws.write(i)
+      })
+      ws.end()
+    })
+
+    res.end('{msg:"success"}', 'utf8')
+    res.json({
+      code: 200,
+      msg: "上传成功",
+      data: null,
+    })
+
+
+    /* console.log("router is OK");
     if(req.busboy){
       console.log("this is a file")
       req.busboy.on("file",(filedname, file, filename, encoding, mimetype) => {
@@ -23,7 +70,7 @@ module.exports = {
 
       })
       // req.pipe(req.busboy);
-    }
+    } */
 
   },
 

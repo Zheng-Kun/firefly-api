@@ -2,6 +2,7 @@
 // require("expose-loader?$!jquery");
 
 import $ from "jquery";
+import Config from "../../common/component/fe-config"
 import Header from "../../common/component/ffv-header/header"
 import Alert from "../../common/component/ffv-alert/alert"
 export default class Home{
@@ -9,6 +10,9 @@ export default class Home{
     this.$headerContainer = $("#header-box");
     this.$appContainer = $("#app-box");
     this.$footerContainer = $("#footer-box");
+
+    // 环境变量配置
+    new Config();
 
     console.log("render home page!!!")
     this._render();

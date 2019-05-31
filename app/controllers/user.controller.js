@@ -54,13 +54,22 @@ module.exports = {
       if (err) {
         return next(err);
       }
-      res.cookie("userId",doc._id)
+      // res.cookie("userId",doc._id)
+      res.cookie("un", doc.userName);
       return res.json({code: 200, data: doc})
     })
     /* .exec(function(err, docs) {
       if(err) { return next(err); }
       return res.json()
     }) */
+  },
+
+  logout: function(req, res, next){
+    res.cookie("un", "",{
+      expires: 0,
+    })
+
+    return res.json({code: 200, data: null, message: "已成功退出登陆！"})
   }
 
 }

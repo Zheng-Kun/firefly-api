@@ -20,5 +20,9 @@ export default class Alert{
     setTimeout(($) => {
       document.getElementById("global-alert").classList.remove("show");
     }, this.delay + 1000);
+
+    setTimeout(($) => {
+      document.getElementById("global-alert").parentNode.removeChild(document.getElementById("global-alert"));
+    }, this.delay + 2000);
   }
 }

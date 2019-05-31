@@ -19,3 +19,6 @@
 |       +---home // 主页
 |       \---player // 播放页面
 \---views // express 前端路由的入口文件（pug文件）
+
+## alert index 100
+## login-box index 20
