@@ -25,4 +25,6 @@ export default class Alert{
       document.getElementById("global-alert").parentNode.removeChild(document.getElementById("global-alert"));
     }, this.delay + 2000);
   }
+
+
 }
