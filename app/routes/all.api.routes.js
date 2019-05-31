@@ -6,6 +6,7 @@ module.exports = function(app) {
   /* let videoIo = io.of('api/video/upload').
   on('connection', () => {
   }); */
+  // 允许跨域
   app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");

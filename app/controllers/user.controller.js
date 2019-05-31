@@ -25,7 +25,7 @@ module.exports = {
       newUser.save((err, doc) => {
         if(err) { return res.json({code: 603, msg: "服务端错误，保存用户信息失败"})}
         const {userName, _id} = doc;
-        res.cookie({"userId": _id});
+        // res.cookie({"userId": _id});
         return res.json({
           code: 200,
           msg: "注册成功",

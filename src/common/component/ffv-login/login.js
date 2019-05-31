@@ -55,7 +55,7 @@ export default class Login{
     /**
      * 注册事件
      */
-    $(".from-view .register .register-btn").on("click", ev => {
+    $(".form-view .register .register-btn").on("click", ev => {
       this._register();
     })
 
@@ -78,6 +78,14 @@ export default class Login{
     let md5Password = md5(md5(password));
     console.log(md5Password)
 
+    if (!username || !password) {
+      new Alert({
+        message: "用户名或密码不能为空",
+        type: "error"
+      })
+      return
+    }
+
     /**
      * 发送登录请求
      */
@@ -99,7 +107,7 @@ export default class Login{
       }else{
         new Alert({
           type: "error",
-          message: "resp.data.message",
+          message: resp.data.message,
         });
       }
     })
@@ -107,7 +115,51 @@ export default class Login{
   }
 
   _register(){
+    console.log("注册");
+    /**
+     * 获取表单数据
+     */
+    let username = $(".login-register .register input.username").val();
+    let password = $(".login-register .register input.password").val();
+    console.log(username, password);
 
+    let md5Password = md5(md5(password));
+    console.log(md5Password)
+
+    if(!username || !password){
+      new Alert({
+        message: "用户名或密码不能为空",
+        type: "error"
+      })
+      return 
+    }
+
+    /**
+     * 发送登录请求
+     */
+    axios.post(window.config.host + '/api/user/register', {
+        userName: username,
+        password: md5Password,
+      })
+      .then(resp => {
+        console.log(resp);
+        if (resp.data.code == 200) {
+          new Alert({
+            type: "success",
+            message: "注册成功，请登陆",
+          });
+
+          // this._close();
+          // this._renderHeader();
+          document.querySelector(".login-bg .form-title .login-title").click();
+
+        } else {
+          new Alert({
+            type: "error",
+            message: resp.data.message,
+          });
+        }
+      })
   }
 
   _close(){
