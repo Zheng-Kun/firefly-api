@@ -9,11 +9,13 @@ module.exports = function () {
   var app = express();
   console.log("direname:",__dirname)
 
-  const server = require('http').createServer(app);
+  const server = require('http').Server(app);
   const io = require('socket.io')(server);
+  /* const videoIo =  io.on("connection", socket => {
+    // socket.on("")
+    console.log("socket已连接")
+  }) */
   app.set("socketio", io)
-
-
   app.set('views', './views')
   app.set('view engine', 'pug')
   app.use(bodyParser.json());

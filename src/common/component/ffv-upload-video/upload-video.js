@@ -112,10 +112,10 @@ export default class UploadVideo{
    * 上传视频提交
    */
   _uploadVideo(videoTitle,videoType){
-    console.log("tijiapla上传");
+    // console.log("tijiapla上传");
     let userName = Cookie.get("un");
 
-    let socket = io(window.config.host);
+    let socket = io(window.config.host + "/api/video/upload");
 
     socket.on("connect", ev => {
       console.log("connect event");
