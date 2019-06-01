@@ -162,6 +162,9 @@ export default class UploadVideo{
     }, error => {
       console.log("error",error);
     })
+
+
+    
     // instance.post(window.config.host + '/api/video/upload?name=' + file.name + '&size=' + file.size, file)
     /* instance.post(`${window.config.host}/api/video/upload?userName=${userName}&videoName=${videoTitle}&fileSize=${file.size}&fileName=${file.name}`,file) */
 /*     instance.post(window.config.host + "/api/video/upload", {

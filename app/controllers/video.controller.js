@@ -24,7 +24,7 @@ module.exports = {
     on('connection', () => {
       console.log("Socket已连接");
     }); */
-    console.log("req",req.FormData);
+    console.log("req",req.body);
 
     const {userName, videoName, videoType, fileSize, fileName} = req.body;
     // const size = params.size
