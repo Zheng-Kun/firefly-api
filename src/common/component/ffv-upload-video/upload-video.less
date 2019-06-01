@@ -1,0 +1,66 @@
+.upload-video-bg{
+  z-index: 20;
+  position: fixed;
+  display: flex;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+
+  align-items: center;
+  justify-content: center;
+  .upload-box{
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    width: 400px;
+    padding: 48px;
+    .close-btn{
+      position: absolute;
+      display: block;
+      height: 28px;
+      width: 28px;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      background-image: url("../../../static/icon/close.png");
+      background-size: cover;
+      transform: rotate(0deg);
+      transition: all 400ms;
+
+      &:hover {
+        transform: rotate(180deg);
+        transition: all 400ms;
+      }
+    }
+    nav.form-title{
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 22px;
+      color: #333;
+      border-bottom: 2px solid rgb(63, 169, 245);
+    }
+    .form-view{
+      .form-box{}
+      .drag-box{
+        height: 100px;
+        border-radius: 4px;
+        background-color: rgba(79, 157, 230, 0.5);
+      }
+      .preview-box{}
+      .upload-submit-btn{
+        height: 42px;
+        margin-top: 24px;
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        line-height: 42px;
+        border-radius: 21px;
+        background-color: rgb(63, 169, 245);
+        cursor: pointer;
+      }
+    }
+  }
+
+}

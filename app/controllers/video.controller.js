@@ -18,6 +18,7 @@ module.exports = {
     let videoIo = io.
     on('connection', () => {
       /* … */
+      console.log("Socket已连接");
     });
 
     const {userName, videoName, videoType, fileSize, fileName} = req.body;

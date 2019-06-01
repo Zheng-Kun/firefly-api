@@ -1,8 +1,9 @@
 import Cookie from "js-cookie";
 import header from "./header.hbs";
 import LoginBox from "../ffv-login/login";
+import UploadVideo from "../ffv-upload-video/upload-video";
 import axios from "axios";
-import Alert from "../ffv-alert/alert"
+import Alert from "../ffv-alert/alert";
 import "./header.less"
 export default class Header{
   constructor(props){
@@ -39,6 +40,7 @@ export default class Header{
     });
 
     $(".user-operate .logout").on("click", ev => {
+      Cookie.set("un", "", {expires: 0});
       axios.get(window.config.host + "/api/user/logout")
       .then(resp => {
         if(resp.data.code == 200){
@@ -49,6 +51,17 @@ export default class Header{
           this._render();
         }
       })
+    })
+
+    $(".upload-btn").on("click",ev => {
+      if(!this.userName){
+        new Alert({
+          message: "游客不能上传视频，请先登陆",
+          type: "error",
+        })
+        return;
+      }
+      new UploadVideo();
     })
   }
 }
