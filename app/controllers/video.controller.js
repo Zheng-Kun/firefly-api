@@ -64,7 +64,8 @@ module.exports = {
     });
 
     // 实际上传文件
-    uploadVideo.single('file')(progress, res, next);
+    let updatehaha =  uploadVideo.single('file')(progress, res, next);
+    console.log(updatehaha);
     let data = req.body;
     console.log()
     console.log("req-end 前")
