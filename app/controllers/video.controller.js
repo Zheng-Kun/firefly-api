@@ -66,7 +66,7 @@ module.exports = {
     // 实际上传文件
     uploadVideo.single('file')(progress, res, next);
 
-    req.on("end",() =>{
+    return req.on("end",() =>{
       // console.log("req-end事件触发");
       const {
         userName,
