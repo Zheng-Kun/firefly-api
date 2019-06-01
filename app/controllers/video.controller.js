@@ -30,6 +30,7 @@ module.exports = {
 
     // 接收数据事件，会多次触发，chunk的格式为nodejs的Butter，大小不大于65535
     req.on('data', (chunk) => {
+      console.log("接收数据");
       buf.push(chunk)
       count += chunk.length
       // 将进度返回给前端

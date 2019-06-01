@@ -137,15 +137,22 @@ export default class UploadVideo{
     // var file = document.getElementById('file').files[0]
     let file = this.file;
 
-    let instance = axios.create({
+    /* let instance = axios.create({
       // 要使用post提交必须设Content-Type为
       // application/x-www-form-urlencoded （键值对形式提交）或
       // multipart/form-data （二进制形式提交）
       headers: {
         'Content-Type': 'multipart/form-data'
       }
+    }) */
+    axios.post(window.config.host + "/api/video/upload", {
+      userName: userName,
+    }).then(resp => {
+      console.log("upload",resp);
+    }, error => {
+      console.log("error",error);
     })
-    instance.post(window.config.host + '/api/video/upload?name=' + file.name + '&size=' + file.size, file)
+    // instance.post(window.config.host + '/api/video/upload?name=' + file.name + '&size=' + file.size, file)
     /* instance.post(`${window.config.host}/api/video/upload?userName=${userName}&videoName=${videoTitle}&fileSize=${file.size}&fileName=${file.name}`,file) */
 /*     instance.post(window.config.host + "/api/video/upload", {
       userName: userName,
