@@ -15,15 +15,11 @@ let multer = require('multer');
 let storage = multer.diskStorage({
   destination(req, res, cb){
     cb(null, path.join(__dirname, '../../../../video-lib'));
-    console.log("再其他地方找呀",req.body);
-    console.log("咋不行呢",req)
   },
   filename(req, file, cb) {
     const filenameArr = file.originalname.split('.');
     myFileName = Date.now() + '-' + file.originalname;
     cb(null, myFileName);
-    console.log("再其他地方找呀", req.body);
-    console.log("咋不行呢", req)
   }
 })
 let uploadVideo = multer({
@@ -69,21 +65,20 @@ module.exports = {
     });
 
     // 实际上传文件
-    let updatehaha =  uploadVideo.single('file')(progress, res, next);
-    console.log(updatehaha);
-    let data = req.body;
+    uploadVideo.single('file')(progress, res, next);
+
     console.log()
     console.log("req-end 前")
     req.on("end", () => {
       console.log("req-end事件触发");
-      /* const {
+      const {
         userName,
         videoName,
         videoType,
         fileSize,
         fileName
-      } = req.body; */
-      console.log("req.body", data)
+      } = req.body;
+      // console.log("req.body", data)
       const newVideo = Video({
         videoName: data.videoName,
         author: data.userName,
