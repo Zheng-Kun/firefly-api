@@ -145,8 +145,8 @@ export default class UploadVideo{
         'Content-Type': 'multipart/form-data'
       }
     })
-    // instance.post('http://localhost:8080/product/upload/img?name=' + file.name + '&size=' + file.size, file)
-    instance.post(`${window.config.host}/api/video/upload?userName=${userName}&videoName=${videoTitle}&fileSize=${file.size}&fileName=${file.name}`,file)
+    instance.post(window.config.host + '/api/video/upload?name=' + file.name + '&size=' + file.size, file)
+    /* instance.post(`${window.config.host}/api/video/upload?userName=${userName}&videoName=${videoTitle}&fileSize=${file.size}&fileName=${file.name}`,file) */
 /*     instance.post(window.config.host + "/api/video/upload", {
       userName: userName,
       videoName: videoTitle,
