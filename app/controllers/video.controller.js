@@ -6,6 +6,7 @@ const VIDEO_PATH = config.videoPath;
 module.exports = {
 
   upload: (req, res, next) => {
+    console.log("upload request");
 
     // 跨域，因前端文件是直接拖到浏览器上运行以file://形式访问，与后台不在同一域，所以要跨域处理
     res.writeHead(200, {
