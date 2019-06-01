@@ -19,6 +19,7 @@
     "axios": "^0.18.0",
     "body-parser": "^1.14.0",
     "connect-busboy": "^0.0.2",
+    "cookie-parser": "^1.4.4",
     "express": "^4.13.3",
     "formidable": "^1.2.1",
     "handlebars": "^4.1.2",
