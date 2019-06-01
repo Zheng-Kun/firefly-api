@@ -68,7 +68,7 @@ module.exports = {
     let data = req.body;
     console.log()
     console.log("req-end 前")
-    req.on("end", (data) => {
+    req.on("end", () => {
       console.log("req-end事件触发");
       /* const {
         userName,
