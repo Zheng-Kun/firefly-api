@@ -31,6 +31,7 @@ module.exports = {
 
   upload: (req, res, next) => {
     console.log("upload request");
+    console.log("cookie",req.cookie);
 
     // 跨域，因前端文件是直接拖到浏览器上运行以file://形式访问，与后台不在同一域，所以要跨域处理
     res.writeHead(200, {
@@ -67,7 +68,7 @@ module.exports = {
     // 实际上传文件
     uploadVideo.single('file')(progress, res, next);
 
-    console.log(req.body)
+    console.log("body:",req.body)
     console.log("req-end 前")
     req.on("end", () => {
       console.log("req-end事件触发");
