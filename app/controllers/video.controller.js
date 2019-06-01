@@ -8,12 +8,14 @@ let progressStream = require('progress-stream');
 const VIDEO_PATH = config.videoPath;
 
 let myFileName = null;
+let formData = null;
 
 let path = require("path")
 let multer = require('multer');
 let storage = multer.diskStorage({
   destination(req, res, cb){
     cb(null, path.join(__dirname, '../../../../video-lib'));
+    console.log("再其他地方找呀",req.body);
   },
   filename(req, file, cb) {
     const filenameArr = file.originalname.split('.');
