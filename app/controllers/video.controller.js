@@ -10,6 +10,15 @@ let fs = require("fs");
 
 let path = require("path")
 let multer = require('multer');
+let storage = multer.diskStorage({
+  destination(req, res, cb){
+    cb(null, path.join(__dirname, '../video-lib'));
+  },
+  filename(req, file, cb) {
+    const filenameArr = file.originalname.split('.');
+    cb(null, Date.now() + '-' + filenameArr[0] + filenameArr[filenameArr.length - 1]);
+  }
+})
 let uploadVideo = multer({
   dest: path.join(__dirname, '../video-lib')
 });
