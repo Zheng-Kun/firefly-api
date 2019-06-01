@@ -20,7 +20,8 @@ let storage = multer.diskStorage({
   }
 })
 let uploadVideo = multer({
-  dest: path.join(__dirname, '../video-lib')
+  // dest: path.join(__dirname, '../video-lib')
+  storage
 });
 
 module.exports = {
