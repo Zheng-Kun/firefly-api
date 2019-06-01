@@ -146,16 +146,17 @@ export default class UploadVideo{
       }
     })
     // instance.post('http://localhost:8080/product/upload/img?name=' + file.name + '&size=' + file.size, file)
-    instance.post(window.config.host + "/api/video/upload", {
+    instance.post(`${window.config.host}/api/video/upload?userName=${userName}&videoName=${videoTitle}&fileSize=${file.size}&fileName=${file.name}`,file)
+/*     instance.post(window.config.host + "/api/video/upload", {
       userName: userName,
       videoName: videoTitle,
       videoType: file.type,
       fileSize: file.size,
       fileName: file.name,
-      file,
+      // file,
     }).then(resp => {
       console.log("videoUpload",resp);
-    })
+    }) */
   }
 
 
