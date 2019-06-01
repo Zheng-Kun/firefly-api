@@ -149,7 +149,8 @@ export default class UploadVideo{
     let param  = new FormData();
     param.append("file",file);
     param.append("userName", userName);
-    param.append("videoName", file.type);
+    param.append("videoName", videoTitle);
+    param.append("videoType", videoType);
     param.append("fileSize", file.size);
     param.append("fileName", file.name);
     let config = {
@@ -164,7 +165,7 @@ export default class UploadVideo{
     })
 
 
-    
+
     // instance.post(window.config.host + '/api/video/upload?name=' + file.name + '&size=' + file.size, file)
     /* instance.post(`${window.config.host}/api/video/upload?userName=${userName}&videoName=${videoTitle}&fileSize=${file.size}&fileName=${file.name}`,file) */
 /*     instance.post(window.config.host + "/api/video/upload", {
