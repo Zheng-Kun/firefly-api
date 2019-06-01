@@ -115,7 +115,7 @@ export default class UploadVideo{
     // console.log("tijiapla上传");
     let userName = Cookie.get("un");
 
-    let socket = io(window.config.host + "/api/video/upload");
+    let socket = io(window.config.host);
 
     socket.on("connect", ev => {
       console.log("connect event");
@@ -145,9 +145,15 @@ export default class UploadVideo{
         'Content-Type': 'multipart/form-data'
       }
     }) */
-    axios.post(window.config.host + "/api/video/upload", {
-      userName: userName,
-    }).then(resp => {
+
+    let param  = new FormData();
+    param.append("file",file);
+    let config = {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }
+    axios.post(window.config.host + "/api/video/upload", param, config).then(resp => {
       console.log("upload",resp);
     }, error => {
       console.log("error",error);
