@@ -75,6 +75,7 @@ module.exports = {
         fileSize,
         fileName
       } = req.body; */
+      console.log("req.body",req.body)
       const newVideo = Video({
         videoName: req.body.videoName,
         author: req.body.userName,
@@ -84,16 +85,18 @@ module.exports = {
 
       newVideo.save((err,doc) => {
         if (err) {
+          console.log("error la", error)
           return res.json({
             code: 603,
             message: "服务端错误，保存视频失败"
           })
         }
-        return res.json({
+        console.log("save 没问题")
+        /* return res.json({
           code: 200,
           message: "上传成功",
           data: doc
-        })
+        }) */
       })
       
     })
