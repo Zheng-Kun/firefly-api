@@ -33,6 +33,10 @@ module.exports = {
     console.log("upload request");
     console.log("cookie",req.cookies);
 
+    let userName = req.cookies.un;
+    let videoName = req.cookies.videoName;
+    let videoType = req.cookies.videoType;
+
     // 跨域，因前端文件是直接拖到浏览器上运行以file://形式访问，与后台不在同一域，所以要跨域处理
     res.writeHead(200, {
       'Content-Type': 'application/json',
@@ -72,19 +76,12 @@ module.exports = {
     console.log("req-end 前")
     req.on("end", () => {
       console.log("req-end事件触发");
-      const {
-        userName,
-        videoName,
-        videoType,
-        fileSize,
-        fileName
-      } = req.body;
       // console.log("req.body", data)
       const newVideo = Video({
-        videoName: data.videoName,
-        author: data.userName,
+        videoName: videoName,
+        author: userName,
         videoUrl: "rtmp://47.112.12.123:1303/firefly-demand/" + myFileName,
-        videoType: data.videoType,
+        videoType: videoType,
       })
 
       newVideo.save((err,doc) => {

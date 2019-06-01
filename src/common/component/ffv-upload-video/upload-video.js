@@ -148,11 +148,14 @@ export default class UploadVideo{
 
     let param  = new FormData();
     param.append("file",file);
-    param.append("userName", userName);
-    param.append("videoName", videoTitle);
+    // param.append("userName", userName);
+    /* param.append("videoName", videoTitle);
     param.append("videoType", videoType);
     param.append("fileSize", file.size);
-    param.append("fileName", file.name);
+    param.append("fileName", file.name); */
+
+    Cookie.set("videoName", videoTitle);
+    Cookie.set("videoType", videoType);
     let config = {
       headers: {
         'Content-Type': 'multipart/form-data'
