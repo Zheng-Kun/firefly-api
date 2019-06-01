@@ -1,7 +1,8 @@
 var mongoose = require("mongoose");
 // var Video = mongoose.model("Video");
 let config = require("../../config/config");
-let formidable = require("formidable");
+// let formidable = require("formidable");
+
 const VIDEO_PATH = config.videoPath;
 
 let fs = require("fs");
@@ -20,8 +21,7 @@ module.exports = {
     })
 
     let videoIo = req.app.get("videoIo");
-    let form = new formidable.IncomingForm();
-    console.log("req",form);
+    console.log("req",req.body);
 
     const {userName, videoName, videoType, fileSize, fileName} = req.body;
     // const size = params.size
