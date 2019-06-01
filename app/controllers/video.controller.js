@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 // var Video = mongoose.model("Video");
 let config = require("../../config/config");
+let formidable = require("formidable");
 const VIDEO_PATH = config.videoPath;
 
 let fs = require("fs");
@@ -19,12 +20,8 @@ module.exports = {
     })
 
     let videoIo = req.app.get("videoIo");
-    /* let io = req.app.get("sockitio");
-    let videoIo = io.
-    on('connection', () => {
-      console.log("Socket已连接");
-    }); */
-    console.log("req",req.body);
+    let form = new formidable.IncomingForm();
+    console.log("req",form);
 
     const {userName, videoName, videoType, fileSize, fileName} = req.body;
     // const size = params.size
