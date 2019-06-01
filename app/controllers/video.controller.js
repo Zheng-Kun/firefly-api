@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var Video = mongoose.model("Video");
 // var Video = mongoose.model("Video");
 let config = require("../../config/config");
 // let formidable = require("formidable");
@@ -6,17 +7,18 @@ let progressStream = require('progress-stream');
 
 const VIDEO_PATH = config.videoPath;
 
-let fs = require("fs");
+let myFileName = null;
 
 let path = require("path")
 let multer = require('multer');
 let storage = multer.diskStorage({
   destination(req, res, cb){
-    cb(null, path.join(__dirname, '../video-lib'));
+    cb(null, path.join(__dirname, '../../../../video-lib'));
   },
   filename(req, file, cb) {
     const filenameArr = file.originalname.split('.');
-    cb(null, Date.now() + '-' + filenameArr[0] + "." +filenameArr[filenameArr.length - 1]);
+    myFileName = Date.now() + '-' + file.originalname;
+    cb(null, myFileName);
   }
 })
 let uploadVideo = multer({
@@ -37,9 +39,7 @@ module.exports = {
     })
 
     let videoIo = req.app.get("videoIo");
-    console.log("req",req.body);
-
-    const {userName, videoName, videoType, fileSize, fileName} = req.body;
+    // console.log("req",req.body);
 
     // 创建progress stream的实例
     let progress = progressStream({
@@ -67,62 +67,37 @@ module.exports = {
     uploadVideo.single('file')(progress, res, next);
 
     req.on("end",() =>{
-      console.log("req-end事件触发");
-    })
-
-    res.on("end", ()=>{
-      console.log("res-end事件触发");
-    })
-
-    /* const buf = []
-    let count = 0
-
-    // 接收数据事件，会多次触发，chunk的格式为nodejs的Butter，大小不大于65535
-    req.on('data', (chunk) => {
-      console.log("接收数据", Math.round(count / fileSize * 100));
-      buf.push(chunk)
-      count += chunk.length
-      // 将进度返回给前端
-      videoIo.emit('progress', Math.round(count / fileSize * 100))
-    })
-
-    // 数据接收结束保存
-    req.on('end', () => {
-      // 创建流（stream）
-      const ws = fs.createWriteStream(path.resolve(__dirname, '/../../../../video-lib', fileName))
-      // 将暂存好的Buffer写入流
-      buf.forEach(i => {
-        ws.write(i)
+      // console.log("req-end事件触发");
+      const {
+        userName,
+        videoName,
+        videoType,
+        fileSize,
+        fileName
+      } = req.body;
+      const newVideo = Video({
+        videoName: videoName,
+        author: userName,
+        videoUrl: "rtmp://47.112.12.123:1303/firefly-demand/" + myFileName,
+        videoType: videoType,
       })
-      ws.end()
-    })
 
-    // res.end('{msg:"success"}', 'utf8')
-    res.end({
-      code: 200,
-      msg: "上传成功",
-      data: null,
-    }) */
-
-
-    /* console.log("router is OK");
-    if(req.busboy){
-      console.log("this is a file")
-      req.busboy.on("file",(filedname, file, filename, encoding, mimetype) => {
-        var saveTo = path.join(VIDEO_PATH, filename);
-        file.pipe(fs.createWriteStream(saveTo));
-        file.on('end', function () {
-        //在这边可以做一些数据库操作
-          res.json({
-            success: true
-          });
-        });
-        console.log(filedname, file, filename, encoding, mimetype);
+      newVideo.save((err,doc) => {
+        if (err) {
+          return res.json({
+            code: 603,
+            message: "服务端错误，保存视频失败"
+          })
+        }
+        return res.json({
+          code: 200,
+          message: "上传成功",
+          data: doc
+        })
 
 
       })
-      // req.pipe(req.busboy);
-    } */
+    })
 
   },
 
