@@ -15,12 +15,12 @@ module.exports = {
       'Access-Control-Allow-Methods': 'GET,POST'
     })
 
-    let io = req.app.get("sockitio");
+    let videoIo = req.app.get("videoIo");
+    /* let io = req.app.get("sockitio");
     let videoIo = io.
     on('connection', () => {
-      /* … */
       console.log("Socket已连接");
-    });
+    }); */
 
     const {userName, videoName, videoType, fileSize, fileName} = req.body;
     // const size = params.size

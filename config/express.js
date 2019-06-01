@@ -11,11 +11,15 @@ module.exports = function () {
 
   const server = require('http').Server(app);
   const io = require('socket.io')(server);
-  /* const videoIo =  io.on("connection", socket => {
-    // socket.on("")
-    console.log("socket已连接")
-  }) */
+
+  // let io = req.app.get("sockitio");
+  const videoIo = io.
+  on('connection', () => {
+    /* … */
+    console.log("Socket已连接");
+  });
   app.set("socketio", io)
+  app.set("videoIo", videoIo)
   app.set('views', './views')
   app.set('view engine', 'pug')
   app.use(bodyParser.json());
