@@ -65,8 +65,10 @@ module.exports = {
 
     // 实际上传文件
     uploadVideo.single('file')(progress, res, next);
-
-    req.on("end",() =>{
+    let data = req.body;
+    console.log()
+    console.log("req-end 前")
+    req.on("end", (data) => {
       console.log("req-end事件触发");
       /* const {
         userName,
@@ -75,12 +77,12 @@ module.exports = {
         fileSize,
         fileName
       } = req.body; */
-      console.log("req.body",req.body)
+      console.log("req.body", data)
       const newVideo = Video({
-        videoName: req.body.videoName,
-        author: req.body.userName,
+        videoName: data.videoName,
+        author: data.userName,
         videoUrl: "rtmp://47.112.12.123:1303/firefly-demand/" + myFileName,
-        videoType: req.body.videoType,
+        videoType: data.videoType,
       })
 
       newVideo.save((err,doc) => {
@@ -96,7 +98,7 @@ module.exports = {
       })
       
     })
-    console.log("这里饭饭")
+    console.log("req-end 后")
     return res.json({
       code: 200,
       message: "上传成功",
