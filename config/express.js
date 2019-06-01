@@ -23,7 +23,9 @@ module.exports = function () {
   app.set('views', './views')
   app.set('view engine', 'pug')
   app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded());
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
   app.use(express.static("dist"));
   // app.use(express.static("./dist"));
   // app.use(express.static("../dist"));
