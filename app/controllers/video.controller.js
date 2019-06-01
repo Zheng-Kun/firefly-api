@@ -31,7 +31,7 @@ module.exports = {
 
   upload: (req, res, next) => {
     console.log("upload request");
-    console.log("cookie",req.cookie);
+    console.log("cookie",req.cookies);
 
     // 跨域，因前端文件是直接拖到浏览器上运行以file://形式访问，与后台不在同一域，所以要跨域处理
     res.writeHead(200, {
