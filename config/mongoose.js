@@ -3,6 +3,7 @@ var config = require('./config');
 
 module.exports = function () {
   // 连接数据库
+  mongoose.Promise = global.Promise;
   var db = mongoose.connect(config.mongodb, {
     useMongoClient: true,
   });
