@@ -66,9 +66,9 @@ module.exports = {
     // 实际上传文件
     uploadVideo.single('file')(progress, res, next);
 
-    return req.on("end",() =>{
-      // console.log("req-end事件触发");
-      const {
+    req.on("end",() =>{
+      console.log("req-end事件触发");
+      /* const {
         userName,
         videoName,
         videoType,
@@ -94,10 +94,10 @@ module.exports = {
           message: "上传成功",
           data: doc
         })
-
-
-      })
+      }) */
+      
     })
+    console.log("这里饭饭")
 
   },
 
