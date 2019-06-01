@@ -16,11 +16,14 @@ let storage = multer.diskStorage({
   destination(req, res, cb){
     cb(null, path.join(__dirname, '../../../../video-lib'));
     console.log("再其他地方找呀",req.body);
+    console.log("咋不行呢",req)
   },
   filename(req, file, cb) {
     const filenameArr = file.originalname.split('.');
     myFileName = Date.now() + '-' + file.originalname;
     cb(null, myFileName);
+    console.log("再其他地方找呀", req.body);
+    console.log("咋不行呢", req)
   }
 })
 let uploadVideo = multer({
