@@ -56,7 +56,7 @@ module.exports = {
 
     // 获取上传进度
     progress.on('progress', function (obj) {
-      console.log('progress: %s', obj.percentage);
+      // console.log('progress: %s', obj.percentage);
       videoIo.emit('progress', obj.percentage);
       if(obj.percentage == 100){
         console.log("百分之百啦")
@@ -74,12 +74,12 @@ module.exports = {
         videoType,
         fileSize,
         fileName
-      } = req.body;
+      } = req.body; */
       const newVideo = Video({
-        videoName: videoName,
-        author: userName,
+        videoName: req.body.videoName,
+        author: req.body.userName,
         videoUrl: "rtmp://47.112.12.123:1303/firefly-demand/" + myFileName,
-        videoType: videoType,
+        videoType: req.body.videoType,
       })
 
       newVideo.save((err,doc) => {
@@ -94,7 +94,7 @@ module.exports = {
           message: "上传成功",
           data: doc
         })
-      }) */
+      })
       
     })
     console.log("这里饭饭")
