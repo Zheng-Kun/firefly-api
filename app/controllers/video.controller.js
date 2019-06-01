@@ -98,6 +98,8 @@ module.exports = {
       
     })
     console.log("req-end 后")
+    res.cookie("videoName", "");
+    res.cookie("videoType", "");
     return res.json({
       code: 200,
       message: "上传成功",
