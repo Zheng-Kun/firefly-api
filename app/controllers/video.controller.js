@@ -16,7 +16,7 @@ let storage = multer.diskStorage({
   },
   filename(req, file, cb) {
     const filenameArr = file.originalname.split('.');
-    cb(null, Date.now() + '-' + filenameArr[0] + filenameArr[filenameArr.length - 1]);
+    cb(null, Date.now() + '-' + filenameArr[0] + "." +filenameArr[filenameArr.length - 1]);
   }
 })
 let uploadVideo = multer({
@@ -58,10 +58,21 @@ module.exports = {
     progress.on('progress', function (obj) {
       console.log('progress: %s', obj.percentage);
       videoIo.emit('progress', obj.percentage);
+      if(obj.percentage == 100){
+        console.log("百分之百啦")
+      }
     });
 
     // 实际上传文件
     uploadVideo.single('file')(progress, res, next);
+
+    req.on("end",() =>{
+      console.log("req-end事件触发");
+    })
+
+    res.on("end", ()=>{
+      console.log("res-end事件触发");
+    })
 
     /* const buf = []
     let count = 0
