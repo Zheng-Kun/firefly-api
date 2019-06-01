@@ -92,15 +92,16 @@ module.exports = {
           })
         }
         console.log("save 没问题")
-        /* return res.json({
-          code: 200,
-          message: "上传成功",
-          data: doc
-        }) */
+        
       })
       
     })
     console.log("这里饭饭")
+    return res.json({
+      code: 200,
+      message: "上传成功",
+      data: doc
+    })
 
   },
 
