@@ -3,6 +3,8 @@ var mongoose = require("mongoose");
 let config = require("../../config/config");
 const VIDEO_PATH = config.videoPath;
 
+let fs = require("fs");
+
 module.exports = {
 
   upload: (req, res, next) => {
@@ -21,6 +23,7 @@ module.exports = {
     on('connection', () => {
       console.log("Socket已连接");
     }); */
+    console.log(req,body);
 
     const {userName, videoName, videoType, fileSize, fileName} = req.body;
     // const size = params.size
