@@ -2,11 +2,17 @@ var mongoose = require("mongoose");
 // var Video = mongoose.model("Video");
 let config = require("../../config/config");
 // let formidable = require("formidable");
+let progressStream = require('progress-stream');
 
 const VIDEO_PATH = config.videoPath;
 
 let fs = require("fs");
-let path = require("path");
+
+let path = require("path")
+let multer = require('multer');
+let uploadVideo = multer({
+  dest: path.join(__dirname, '../video-lib')
+});
 
 module.exports = {
 
@@ -24,9 +30,30 @@ module.exports = {
     console.log("req",req.body);
 
     const {userName, videoName, videoType, fileSize, fileName} = req.body;
-    // const size = params.size
-    // const name = params.name
-    const buf = []
+
+    // 创建progress stream的实例
+    let progress = progressStream({
+      length: '0'
+    }); // 注意这里 length 设置为 '0'
+    req.pipe(progress);
+    progress.headers = req.headers;
+
+    // 获取上传文件的真实长度（针对 multipart)
+    progress.on('length', function nowIKnowMyLength(actualLength) {
+      console.log('actualLength: %s', actualLength);
+      progress.setLength(actualLength);
+    });
+
+    // 获取上传进度
+    progress.on('progress', function (obj) {
+      console.log('progress: %s', obj.percentage);
+      videoIo.emit('progress', obj.percentage);
+    });
+
+    // 实际上传文件
+    uploadVideo.single('file')(progress, res, next);
+
+    /* const buf = []
     let count = 0
 
     // 接收数据事件，会多次触发，chunk的格式为nodejs的Butter，大小不大于65535
@@ -54,7 +81,7 @@ module.exports = {
       code: 200,
       msg: "上传成功",
       data: null,
-    })
+    }) */
 
 
     /* console.log("router is OK");
