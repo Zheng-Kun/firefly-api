@@ -35,7 +35,7 @@ export default class VideListBig{
         this.data[i].date = this.data[i].updateDate.substr(0,10);
       }
       // console.log(this.videoType, resp.data.data);
-      let listDom  = template(...this);
+      let listDom  = template({...this});
       this.container.appendChild(listDom);
     })
   }
