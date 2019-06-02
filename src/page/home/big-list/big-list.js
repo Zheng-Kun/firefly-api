@@ -21,7 +21,7 @@ export default class BigList{
     for(let i in this.videoTypeObj){
       new VideoListBig({
         $container: $("#video-list-box"),
-        videoType: this.videoTypeObj[i],
+        videoType: i,
       })
     }
   }

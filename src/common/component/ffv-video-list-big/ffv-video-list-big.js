@@ -9,6 +9,16 @@ export default class VideListBig{
       $container: null,
       videoType: null,
     }, props)
+    this.videoTypeObj = {
+      movie: "影视",
+      anime: "动漫",
+      music: "音乐",
+      entertainment: "娱乐",
+      study: "学习",
+      science: "科技",
+      life: "生活",
+      other: "其他",
+    }
 
     this._render();
   }
