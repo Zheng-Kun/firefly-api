@@ -1,0 +1,39 @@
+<div class="{{videoType}}">
+<h2>
+  <span class="type-icon {{videoType}}-icon"></span>
+  <span class="type-title">{{typeText}}</span>
+</h2>
+<ul>
+  {{#each data}}
+
+  <a href="/video/player/{{_id}}">
+    <li>
+      <div class="cover">
+        <span class="type-tag">{{typeText}}</span>
+        <span class="view-count">{{viewCounts}}</span>
+      </div>
+    
+      <div class="">
+        <p>{{videoName}}</p>
+        <p>
+          <span class="author">{{author}}</span>
+          <span class="update-date">{{date}}</span>
+        </p>
+      </div>
+    </li>
+  </a>
+
+  {{else}}
+  <div class="no-type-video">
+     
+{{!-- author: "zhengkun"
+updateDate: "2019-06-02T08:34:26.795Z"
+videoName: "Shinedown-I'm Alive (《复仇者联盟》电影主题曲)(超清)"
+videoType: "movie"
+videoUrl: "rtmp://47.112.12.123:1303/firefly-demand/1559464421683-Shinedown-I'm Alive (《复仇者联盟》电影主题曲)(超清).mp4"
+viewCounts: 0 --}}
+
+  </div>
+  {{/each}}
+</ul>
+</div>

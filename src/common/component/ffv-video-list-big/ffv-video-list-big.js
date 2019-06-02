@@ -24,10 +24,19 @@ export default class VideListBig{
   }
 
   _render(){
+    this.container = this.$container[0];
     axios.post(window.config.host + '/api/video/getVideoListByType', {
       videoType: this.videoType,
     }).then(resp => {
-      console.log(this.videoType, resp);
+
+      this.typeText = this.videoTypeObj[this.videoType];
+      this.data = resp.data.data;
+      for (let i = 0; i < this.data.length; i++){
+        this.data[i].date = this.data[i].updateDate.substr(0,10);
+      }
+      // console.log(this.videoType, resp.data.data);
+      let listDom  = template(...this);
+      this.container.appendChild(listDom);
     })
   }
 }
