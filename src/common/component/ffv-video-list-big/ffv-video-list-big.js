@@ -36,6 +36,9 @@ export default class VideListBig{
       }
       // console.log(this.videoType, resp.data.data);
       let listDom  = template({...this});
+      let boxDom = document.createElement("div");
+      boxDom.setAttribute("class",this.videoType);
+      boxDom.innerHTML(listDom);
       this.container.appendChild(listDom);
     })
   }
