@@ -33,6 +33,7 @@ export default class VideListBig{
       this.data = resp.data.data;
       for (let i = 0; i < this.data.length; i++){
         this.data[i].date = this.data[i].updateDate.substr(0,10);
+        this.data[i].typeText = this.typeText;
       }
       // console.log(this.videoType, resp.data.data);
       let listDom  = template({...this});
