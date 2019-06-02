@@ -1,16 +1,12 @@
 let VideoController = require("../controllers/video.controller")
 
-
 let express = require("express");
 let router = express.Router();
 
-/* let path = require("path")
-let multer = require('multer');
-let uploadVideo = multer({
-  dest: path.join(__dirname, '../video-lib')
-}); */
-
-//uploadVideo.single('file'),
-router.post("/upload", /* uploadVideo.single('file'), */ VideoController.upload);
+router.post("/upload", VideoController.upload);
+router.post("/getVideo", VideoController.getVideo);
+router.post("/getVideoList", VideoController.getVideoList);
+router.post("/getVideoListByType", VideoController.getVideoListByType);
+router.post("/getVideoListByAuthor", VideoController.getVideoListByAuthor);
 
 module.exports = router;

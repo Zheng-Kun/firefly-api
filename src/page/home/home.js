@@ -5,6 +5,7 @@ import $ from "jquery";
 import Config from "../../common/component/fe-config"
 import Header from "../../common/component/ffv-header/header"
 import Alert from "../../common/component/ffv-alert/alert"
+import BigList from "./big-list/big-list"
 export default class Home{
   constructor(){
     this.$headerContainer = $("#header-box");
@@ -27,6 +28,11 @@ export default class Home{
     let header = new Header({
       $container: this.$headerContainer,
     });
+
+    /**
+     * 渲染视频列表
+     */
+    new BigList();
 
     new Alert();
 

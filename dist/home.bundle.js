@@ -563,6 +563,28 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../../node_module
 
 /***/ }),
 
+/***/ "./node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!./node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js!./src/common/component/ffv-video-list-big/ffv-video-list.less":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!./node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js!./src/common/component/ffv-video-list-big/ffv-video-list.less ***!
+  \***************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/_css-loader@2.1.1@css-loader/dist/runtime/api.js */ \"./node_modules/_css-loader@2.1.1@css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./src/common/component/ffv-video-list-big/ffv-video-list.less?./node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!./node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!./node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js!./src/page/home/big-list/big-list.less":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!./node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js!./src/page/home/big-list/big-list.less ***!
+  \****************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/_css-loader@2.1.1@css-loader/dist/runtime/api.js */ \"./node_modules/_css-loader@2.1.1@css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./src/page/home/big-list/big-list.less?./node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!./node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/_css-loader@2.1.1@css-loader/dist/runtime/api.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/_css-loader@2.1.1@css-loader/dist/runtime/api.js ***!
@@ -1376,7 +1398,7 @@ eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/_css-loa
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var Handlebars = __webpack_require__(/*! ../../../../node_modules/_handlebars@4.1.2@handlebars/runtime.js */ \"./node_modules/_handlebars@4.1.2@handlebars/runtime.js\");\nfunction __default(obj) { return obj && (obj.__esModule ? obj[\"default\"] : obj); }\nmodule.exports = (Handlebars[\"default\"] || Handlebars).template({\"compiler\":[7,\">= 4.0.0\"],\"main\":function(container,depth0,helpers,partials,data) {\n    return \"<div class=\\\"upload-video-bg\\\">\\r\\n  <div class=\\\"upload-box\\\">\\r\\n\\r\\n    <span class=\\\"close-btn\\\"></span>\\r\\n\\r\\n    <nav class=\\\"form-title\\\">\\r\\n      上传视频\\r\\n    </nav>\\r\\n\\r\\n    <div class=\\\"form-view\\\">\\r\\n      <div class=\\\"from-box\\\">\\r\\n        <ul>\\r\\n          <li class=\\\"video-name-list\\\">\\r\\n            <span class=\\\"input-title\\\">视频标题：</span>\\r\\n            <input class=\\\"video-name-input\\\" type=\\\"text\\\">\\r\\n          </li>\\r\\n          <li class=\\\"video-type-list\\\">\\r\\n            <span class=\\\"input-title\\\">视频类别：</span>\\r\\n            <select class=\\\"video-type-select\\\">\\r\\n              <option value=\\\"\\\">-未选择-</option>\\r\\n              <option value=\\\"movie\\\">影视</option>\\r\\n              <option value=\\\"anime\\\">动漫</option>\\r\\n              <option value=\\\"music\\\">音乐</option>\\r\\n              <option value=\\\"entertainment\\\">娱乐</option>\\r\\n              <option value=\\\"study\\\">学习</option>\\r\\n              <option value=\\\"science\\\">科技</option>\\r\\n              <option value=\\\"life\\\">生活</option>\\r\\n              <option value=\\\"other\\\">其他</option>\\r\\n            </select>\\r\\n          </li>\\r\\n          <li class=\\\"video-file-list\\\">\\r\\n            <input type=\\\"file\\\">\\r\\n          </li>\\r\\n        </ul>\\r\\n      </div>\\r\\n      <div class=\\\"drag-box\\\" draggable=\\\"true\\\">将视频拖拽到这里上传</div>\\r\\n      <div class=\\\"preview-box\\\"></div>\\r\\n      <div class=\\\"upload-submit-btn\\\">上传</div>\\r\\n    </div>\\r\\n\\r\\n  </div>\\r\\n</div>\";\n},\"useData\":true});\n\n//# sourceURL=webpack:///./src/common/component/ffv-upload-video/upload-video.hbs?");
+eval("var Handlebars = __webpack_require__(/*! ../../../../node_modules/_handlebars@4.1.2@handlebars/runtime.js */ \"./node_modules/_handlebars@4.1.2@handlebars/runtime.js\");\nfunction __default(obj) { return obj && (obj.__esModule ? obj[\"default\"] : obj); }\nmodule.exports = (Handlebars[\"default\"] || Handlebars).template({\"compiler\":[7,\">= 4.0.0\"],\"main\":function(container,depth0,helpers,partials,data) {\n    return \"<div class=\\\"upload-video-bg\\\">\\r\\n  <div class=\\\"upload-box\\\">\\r\\n\\r\\n    <span class=\\\"close-btn\\\"></span>\\r\\n\\r\\n    <nav class=\\\"form-title\\\">\\r\\n      上传视频\\r\\n    </nav>\\r\\n\\r\\n    <div class=\\\"form-view\\\">\\r\\n      <div class=\\\"from-box\\\">\\r\\n        <ul>\\r\\n          <li class=\\\"video-name-list\\\">\\r\\n            <span class=\\\"input-title\\\">视频标题：</span>\\r\\n            <input class=\\\"video-name-input\\\" type=\\\"text\\\">\\r\\n          </li>\\r\\n          <li class=\\\"video-type-list\\\">\\r\\n            <span class=\\\"input-title\\\">视频类别：</span>\\r\\n            <select class=\\\"video-type-select\\\">\\r\\n              <option value=\\\"\\\">-未选择-</option>\\r\\n              <option value=\\\"movie\\\">影视</option>\\r\\n              <option value=\\\"anime\\\">动漫</option>\\r\\n              <option value=\\\"music\\\">音乐</option>\\r\\n              <option value=\\\"entertainment\\\">娱乐</option>\\r\\n              <option value=\\\"study\\\">学习</option>\\r\\n              <option value=\\\"science\\\">科技</option>\\r\\n              <option value=\\\"life\\\">生活</option>\\r\\n              <option value=\\\"other\\\">其他</option>\\r\\n            </select>\\r\\n          </li>\\r\\n        </ul>\\r\\n      </div>\\r\\n      <div class=\\\"drag-box\\\" draggable=\\\"true\\\">将视频拖拽到这里上传</div>\\r\\n      <div class=\\\"preview-box\\\"></div>\\r\\n      <div class=\\\"upload-submit-btn\\\">上传</div>\\r\\n    </div>\\r\\n\\r\\n  </div>\\r\\n</div>\";\n},\"useData\":true});\n\n//# sourceURL=webpack:///./src/common/component/ffv-upload-video/upload-video.hbs?");
 
 /***/ }),
 
@@ -1403,6 +1425,63 @@ eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/_css-loa
 
 /***/ }),
 
+/***/ "./src/common/component/ffv-video-list-big/ffv-video-list-big.hbs":
+/*!************************************************************************!*\
+  !*** ./src/common/component/ffv-video-list-big/ffv-video-list-big.hbs ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function(){return \"\";};\n\n//# sourceURL=webpack:///./src/common/component/ffv-video-list-big/ffv-video-list-big.hbs?");
+
+/***/ }),
+
+/***/ "./src/common/component/ffv-video-list-big/ffv-video-list-big.js":
+/*!***********************************************************************!*\
+  !*** ./src/common/component/ffv-video-list-big/ffv-video-list-big.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return VideListBig; });\n/* harmony import */ var _ffv_video_list_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ffv-video-list.less */ \"./src/common/component/ffv-video-list-big/ffv-video-list.less\");\n/* harmony import */ var _ffv_video_list_less__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ffv_video_list_less__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ffv_video_list_big_hbs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ffv-video-list-big.hbs */ \"./src/common/component/ffv-video-list-big/ffv-video-list-big.hbs\");\n/* harmony import */ var _ffv_video_list_big_hbs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ffv_video_list_big_hbs__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"./node_modules/_axios@0.18.0@axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\n\r\n\r\nclass VideListBig{\r\n  constructor(props){\r\n    Object.assign(this, {\r\n      $container: null,\r\n      videoType: null,\r\n    }, props)\r\n\r\n    this._render();\r\n  }\r\n\r\n  _render(){\r\n    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post(window.config.host + '/api/video/getVideoListByType', {\r\n      videoType: this.videoType,\r\n    }).then(resp => {\r\n      console.log(this.videoType, resp);\r\n    })\r\n  }\r\n}\n\n//# sourceURL=webpack:///./src/common/component/ffv-video-list-big/ffv-video-list-big.js?");
+
+/***/ }),
+
+/***/ "./src/common/component/ffv-video-list-big/ffv-video-list.less":
+/*!*********************************************************************!*\
+  !*** ./src/common/component/ffv-video-list-big/ffv-video-list.less ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!../../../../node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js!./ffv-video-list.less */ \"./node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!./node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js!./src/common/component/ffv-video-list-big/ffv-video-list.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../../node_modules/_style-loader@0.23.1@style-loader/lib/addStyles.js */ \"./node_modules/_style-loader@0.23.1@style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/common/component/ffv-video-list-big/ffv-video-list.less?");
+
+/***/ }),
+
+/***/ "./src/page/home/big-list/big-list.js":
+/*!********************************************!*\
+  !*** ./src/page/home/big-list/big-list.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return BigList; });\n/* harmony import */ var _common_component_ffv_video_list_big_ffv_video_list_big__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../common/component/ffv-video-list-big/ffv-video-list-big */ \"./src/common/component/ffv-video-list-big/ffv-video-list-big.js\");\n/* harmony import */ var _big_list_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./big-list.less */ \"./src/page/home/big-list/big-list.less\");\n/* harmony import */ var _big_list_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_big_list_less__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\nclass BigList{\r\n  constructor(props){\r\n    Object.assign(this, {}, props);\r\n    this.videoTypeObj = {\r\n      movie: \"影视\",\r\n      anime: \"动漫\",\r\n      music: \"音乐\",\r\n      entertainment: \"娱乐\",\r\n      study: \"学习\",\r\n      science: \"科技\",\r\n      life: \"生活\",\r\n      other: \"其他\",\r\n    }\r\n\r\n    this._render();\r\n  }\r\n\r\n  _render(){\r\n    for(let i in this.videoTypeObj){\r\n      new _common_component_ffv_video_list_big_ffv_video_list_big__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\r\n        $container: $(\"#video-list-box\"),\r\n        videoType: this.videoTypeObj[i],\r\n      })\r\n    }\r\n  }\r\n\r\n  \r\n}\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/_jquery@3.4.1@jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/page/home/big-list/big-list.js?");
+
+/***/ }),
+
+/***/ "./src/page/home/big-list/big-list.less":
+/*!**********************************************!*\
+  !*** ./src/page/home/big-list/big-list.less ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!../../../../node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js!./big-list.less */ \"./node_modules/_css-loader@2.1.1@css-loader/dist/cjs.js!./node_modules/_less-loader@5.0.0@less-loader/dist/cjs.js!./src/page/home/big-list/big-list.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../../node_modules/_style-loader@0.23.1@style-loader/lib/addStyles.js */ \"./node_modules/_style-loader@0.23.1@style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/page/home/big-list/big-list.less?");
+
+/***/ }),
+
 /***/ "./src/page/home/home.js":
 /*!*******************************!*\
   !*** ./src/page/home/home.js ***!
@@ -1411,7 +1490,7 @@ eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/_css-loa
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Home; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/_jquery@3.4.1@jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _common_component_fe_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/component/fe-config */ \"./src/common/component/fe-config.js\");\n/* harmony import */ var _common_component_ffv_header_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/component/ffv-header/header */ \"./src/common/component/ffv-header/header.js\");\n/* harmony import */ var _common_component_ffv_alert_alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/component/ffv-alert/alert */ \"./src/common/component/ffv-alert/alert.js\");\n// 入口文件d\r\n// require(\"expose-loader?$!jquery\");\r\n\r\n\r\n\r\n\r\n\r\nclass Home{\r\n  constructor(){\r\n    this.$headerContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#header-box\");\r\n    this.$appContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#app-box\");\r\n    this.$footerContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#footer-box\");\r\n\r\n    // 环境变量配置\r\n    new _common_component_fe_config__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\r\n      env: \"pro\",\r\n    });\r\n\r\n    console.log(\"render home page!!!\")\r\n    this._render();\r\n  }\r\n\r\n  _render(){\r\n    /**\r\n     * 渲染Header\r\n     */\r\n    let header = new _common_component_ffv_header_header__WEBPACK_IMPORTED_MODULE_2__[\"default\"]({\r\n      $container: this.$headerContainer,\r\n    });\r\n\r\n    new _common_component_ffv_alert_alert__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\r\n\r\n    \r\n  }\r\n}\r\n\r\nnew Home();\n\n//# sourceURL=webpack:///./src/page/home/home.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Home; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/_jquery@3.4.1@jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _common_component_fe_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/component/fe-config */ \"./src/common/component/fe-config.js\");\n/* harmony import */ var _common_component_ffv_header_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/component/ffv-header/header */ \"./src/common/component/ffv-header/header.js\");\n/* harmony import */ var _common_component_ffv_alert_alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/component/ffv-alert/alert */ \"./src/common/component/ffv-alert/alert.js\");\n/* harmony import */ var _big_list_big_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./big-list/big-list */ \"./src/page/home/big-list/big-list.js\");\n// 入口文件d\r\n// require(\"expose-loader?$!jquery\");\r\n\r\n\r\n\r\n\r\n\r\n\r\nclass Home{\r\n  constructor(){\r\n    this.$headerContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#header-box\");\r\n    this.$appContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#app-box\");\r\n    this.$footerContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#footer-box\");\r\n\r\n    // 环境变量配置\r\n    new _common_component_fe_config__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\r\n      env: \"pro\",\r\n    });\r\n\r\n    console.log(\"render home page!!!\")\r\n    this._render();\r\n  }\r\n\r\n  _render(){\r\n    /**\r\n     * 渲染Header\r\n     */\r\n    let header = new _common_component_ffv_header_header__WEBPACK_IMPORTED_MODULE_2__[\"default\"]({\r\n      $container: this.$headerContainer,\r\n    });\r\n\r\n    /**\r\n     * 渲染视频列表\r\n     */\r\n    new _big_list_big_list__WEBPACK_IMPORTED_MODULE_4__[\"default\"]();\r\n\r\n    new _common_component_ffv_alert_alert__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\r\n\r\n    \r\n  }\r\n}\r\n\r\nnew Home();\n\n//# sourceURL=webpack:///./src/page/home/home.js?");
 
 /***/ }),
 

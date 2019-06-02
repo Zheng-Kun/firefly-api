@@ -107,5 +107,74 @@ module.exports = {
     })
 
   },
+  getVideo: (req, res, next) => {
+    const {_id} = req.body;
+    Video.findOnd({_id}, function (err, doc){
+      /* if(!doc){return res.json({code: 700, message: "没有找到该视频"})} */
+      if(err) { return next(err)}
+
+      Video.update({_id}, {viewCounts: dov.viewCounts ++})
+
+      return res.json({code: 200, data: doc});
+    })
+  },
+  getVideoList: (req, res, next) => {
+    Video.find({}, function (err, doc){
+      /* if (!doc) {
+        return res.json({
+          code: 704,
+          message: "没有找到视频"
+        })
+      } */
+
+      if (err) {
+        return next(err);
+      }
+
+      return res.json({code: 200, data: doc})
+    })
+  },
+  getVideoListByType: (req, res, next) => {
+    const videoType = req.body.videoType;
+    Video.find({videoType}, (err, doc) => {
+      /* if (!doc) {
+        return res.json({
+          code: 704,
+          message: "没有找到该类型的视频"
+        })
+      } */
+
+      if (err) {
+        return next(err);
+      }
+
+      return res.json({
+        code: 200,
+        data: doc
+      })
+    })
+  }, 
+  getVideoListByAuthor: (req, res, next) => {
+    const author = req.body.userName;
+    Video.find({
+      author
+    }, (err, doc) => {
+      /* if (!doc) {
+        return res.json({
+          code: 704,
+          message: "没有找到您上传的视频"
+        })
+      } */
+
+      if (err) {
+        return next(err);
+      }
+
+      return res.json({
+        code: 200,
+        data: doc
+      })
+    })
+  },
 
 }
