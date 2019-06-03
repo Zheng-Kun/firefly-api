@@ -45,7 +45,7 @@
     .form-view{
       overflow: hidden;
       transition: all 300ms;
-      height: 304px;
+      height: 266px;
       &.hide{
         height: 0;
         transition: all 300ms;
@@ -119,15 +119,24 @@
     }
 
     .while-update{
-      height: 304px;
+      height: 266px;
       overflow: hidden;
       &.hide{
         height: 0;
         transition: all 300ms;
       }
+      .load-animation{
+        height: 206px;
+        background-image: url("../../../static/page-bg/loading-1.gif");
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin-bottom: 20px;
+      }
       #progress-box{
         .nanobar{
           height: 40px;
+          background-color: rgba(0, 0, 0, 0.2);
+          border-radius: 20px;
           .bar{
             // height: 100%;
             background: url(../../../static/page-bg/rainbow.gif) 100%;
