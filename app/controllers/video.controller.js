@@ -112,9 +112,11 @@ module.exports = {
     console.log(req.body);
     Video.findOnd({_id}, function (err, doc){
       /* if(!doc){return res.json({code: 700, message: "没有找到该视频"})} */
+      console.log("err",err);
+      console.log("doc",doc);
       if(err) { return next(err)}
 
-      Video.update({_id}, {viewCounts: dov.viewCounts ++})
+      Video.update({_id}, {viewCounts: doc.viewCounts ++})
 
       return res.json({code: 200, data: doc});
     })
