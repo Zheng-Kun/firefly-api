@@ -88,8 +88,10 @@ export default class UploadVideo{
 
   _close(){
     // $(".upload-video-bg").remove();
-
-    document.querySelector(".upload-video-bg").parentNode.removeChild(document.querySelector(".upload-video-bg"));
+    let box = document.querySelector(".upload-video-bg");
+    if(box){
+      box.parentNode.removeChild(box);
+    }
   }
 
   /**
