@@ -26,6 +26,7 @@ export default class VideoPlayer{
     axios.post(window.config.host + "/api/video/getVideo", {
       _id:this.vid,
     }).then(resp => {
+      console.log({...resp.data.data})
       let videoDom = template({...resp.data.data});
       this.$container[0].innerHTML = videoDom;
 
