@@ -15,7 +15,7 @@ module.exports = {
   // 多入口与多出口
   entry: { //入口文件
     home: './src/page/home/home.js',
-    player: "./src/page/player/player.js"
+    player: "./src/page/player/player.js",
   },
   output: { //出口
     filename: "[name].bundle.js", // 打包后的文件名

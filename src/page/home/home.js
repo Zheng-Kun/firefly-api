@@ -34,7 +34,7 @@ export default class Home{
      */
     new BigList();
 
-    new Alert();
+    // new Alert();
 
     
   }

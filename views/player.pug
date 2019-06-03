@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+doctype html
 html(lang="zh")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title=title
+    title Firefly-video
   body
-    h1=message
-    div=vid
+    div(id="background")
+    div(id="header-box")
+    div(id="app-box")
+      div(id="video-player-box")
+      div(id="author-video-list")
+      div(id="type-video-list")
+    div(id="footer-box")
+    //- input(value=vid,name="videoId",style="display:none")
 
-    script(src="../dist/player.bundle.js")
+    script(src="./player.bundle.js")
