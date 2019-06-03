@@ -109,6 +109,7 @@ module.exports = {
   },
   getVideo: (req, res, next) => {
     const {_id} = req.body;
+    console.log(req.body);
     Video.findOnd({_id}, function (err, doc){
       /* if(!doc){return res.json({code: 700, message: "没有找到该视频"})} */
       if(err) { return next(err)}
