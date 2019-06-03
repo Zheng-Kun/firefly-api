@@ -13,6 +13,7 @@ videojs.options['vtt.js'] = VTTJS_PATH;
 
 
 export default class VideoPlayer{
+  
   constructor(props){
     Object.assign(this, {
       vid: null,
