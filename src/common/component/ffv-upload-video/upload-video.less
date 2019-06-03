@@ -89,17 +89,21 @@
           text-align: center;
           color: rgba(0, 0, 0, 0.6)
         }
-      }
-      .preview-box{
-        .file-icon{
-          display: inline-block;
-          width: 20px;
-          height: 20px;
-          background-size: 100% 100%;
+
+        &.has-video{
+          padding: 20px;
+          .file-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-size: 100% 100%;
+            background-image: url("../../../static/icon/video-file.png")
+          }
+          .file-text {
+            font-size: 16px;
+          }
         }
-        .file-text{
-          font-size: 16px;
-        }
+
       }
       .upload-submit-btn{
         height: 42px;
