@@ -58,7 +58,7 @@ export default class UploadVideo{
         return false;
       }else{
         this.file = file;
-        $(".form-view .preview-box").addClass("has-video").html(`<span class="file-icon"></span><span class="file-text">${fileName}</span>`);
+        $(".form-view .drag-box").addClass("has-video").html(`<span class="file-icon"></span><span class="file-text">${fileName}</span>`);
       }
       ev.preventDefault(); //取消浏览器默认事件
     }, false)
@@ -87,7 +87,9 @@ export default class UploadVideo{
   }
 
   _close(){
-    $(".upload-video-bg").remove();
+    // $(".upload-video-bg").remove();
+
+    document.querySelector(".upload-video-bg").parentNode.removeChild(document.querySelector(".upload-video-bg"));
   }
 
   /**
@@ -148,6 +150,12 @@ export default class UploadVideo{
       }
       if(self.progressOn == 1){
         self.progressBar.go(p);
+      }
+      if(p == 100){
+        new Alert({
+          message: "上传成功"
+        })
+        self._close();
       }
       
     })
