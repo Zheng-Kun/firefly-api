@@ -58,7 +58,7 @@ export default class UploadVideo{
         return false;
       }else{
         this.file = file;
-        $(".video-name-list .video-name-input").val(file.name.split(".")[1]);
+        $(".video-name-list .video-name-input").val(file.name.split(".")[0]);
         $(".form-view .drag-box").addClass("has-video").html(`<span class="file-icon"></span><span class="file-text">${fileName}</span>`);
       }
       ev.preventDefault(); //取消浏览器默认事件
