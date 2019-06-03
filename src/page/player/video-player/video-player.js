@@ -27,9 +27,9 @@ export default class VideoPlayer{
       _id:this.vid,
     }).then(resp => {
       let videoDom = template({...resp.data.data});
-      $container[0].innerHtml = videoDom;
+      this.$container[0].innerHtml = videoDom;
 
-      videojs("example_video_1", {}, function () {
+      videojs("ff-video-el", {}, function () {
         // Player (this) is initialized and ready.
       });
     });
