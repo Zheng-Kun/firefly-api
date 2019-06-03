@@ -4,11 +4,12 @@ import template from "./video-play.hbs";
 import axios from "axios";
 
 import videojs from "video.js";
-// import 'video.js/dist/video-js.css';
+import 'video.js/dist/video-js.css';
 // import SWF_PATH from 'video.js/dist/video-js.swf';
-// videojs.options.flash.swf = SWF_PATH;
-// import VTTJS_PATH from 'file!videojs-vtt.js/dist/vtt.min.js';
-// videojs.options['vtt.js'] = VTTJS_PATH;
+import SWF_PATH from 'file-loader!videojs-swf/dist/video-js.swf';
+videojs.options.flash.swf = SWF_PATH;
+import VTTJS_PATH from 'file-loader!videojs-vtt.js/dist/vtt.min.js';
+videojs.options['vtt.js'] = VTTJS_PATH;
 
 
 export default class VideoPlayer{

@@ -30,28 +30,13 @@ module.exports = {
       }, {
         test: /\.hbs$/,
         loader: 'handlebars-loader'
-      },
-      /* {
-        test: require.resolve('jquery'),
-        loader: 'expose?jQuery!expose?$'
-      } ,*/
-      /* {
-        test: /\.js$/,
-        use: [{
-          loader: 'expose-loader',
-          options: 'jQuery'
-        }, {
-          loader: 'expose-loader',
-          options: '$'
-        }]
-      }, */
-      {
+      }, {
         test: /\.(png|jpg|jpeg|gif)$/,
         loader: 'url-loader?limit=8192'
       },
       {
         test: /\.(swf|ttf|eot|svg|woff(2))(\?[a-z0-9]+)?$/,
-        loader: 'file',
+        loader: 'file-loader'
       }
     ],
   },
@@ -59,7 +44,10 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    })
+    }),
+    new webpack.ProvidePlugin({
+      videojs: 'video.js'
+    }),
   ],
 
 
