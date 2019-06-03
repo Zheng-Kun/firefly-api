@@ -146,7 +146,7 @@ export default class UploadVideo{
         self.progressBar = new Nanbar({
           class: "my-progressBar",
           id: "my-progressBar",
-          target: document.querySelector(".upload-video-bg .while-update")
+          target: document.querySelector(".upload-video-bg .while-update #progress-box"),
         })
         self.progressOn = 1;
       }
