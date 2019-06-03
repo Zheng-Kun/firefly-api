@@ -7,6 +7,7 @@ import Alert from "../ffv-alert/alert"
 import Cookie from "js-cookie";
 import axios from "axios";
 import io from "socket.io-client";
+import Nanbar from "nanobar";
 
 export default class UploadVideo{
   constructor(props){
@@ -15,6 +16,7 @@ export default class UploadVideo{
     },props)
 
     this.file = null;
+    this.progressOn = 0;
 
     this._render();
     this._preventDefaultDrag();
@@ -56,7 +58,7 @@ export default class UploadVideo{
         return false;
       }else{
         this.file = file;
-        $(".form-view .preview-box").addClass("has-video").text(fileName);
+        $(".form-view .preview-box").addClass("has-video").html(`<span class="file-icon"></span><span class="file-text">${fileName}</span>`);
       }
       ev.preventDefault(); //取消浏览器默认事件
     }, false)
@@ -112,6 +114,7 @@ export default class UploadVideo{
    * 上传视频提交
    */
   _uploadVideo(videoTitle,videoType){
+    let self = this;
     // console.log("tijiapla上传");
     let userName = Cookie.get("un");
 
@@ -131,28 +134,28 @@ export default class UploadVideo{
 
     socket.on('progress', function (p) {
       console.log(p + '%');
-    })
-    // 获取<input id="file" type="file">的文件数据
+      // 进度条
+      if(self.progressOn == 0){
+        document.querySelector(".upload-video-bg .form-view").classList.add("hide");
+        document.querySelector(".upload-video-bg .while-update").classList.remove("hide");
 
-    // var file = document.getElementById('file').files[0]
-    let file = this.file;
-
-    /* let instance = axios.create({
-      // 要使用post提交必须设Content-Type为
-      // application/x-www-form-urlencoded （键值对形式提交）或
-      // multipart/form-data （二进制形式提交）
-      headers: {
-        'Content-Type': 'multipart/form-data'
+        self.progressBar = new Nanbar({
+          class: "my-progressBar",
+          id: "my-progressBar",
+          target: document.querySelector(".upload-video-bg .while-update")
+        })
+        self.progressOn = 1;
       }
-    }) */
+      if(self.progressOn == 1){
+        self.progressBar.go(p);
+      }
+      
+    })
+
+    let file = this.file;
 
     let param  = new FormData();
     param.append("file",file);
-    // param.append("userName", userName);
-    /* param.append("videoName", videoTitle);
-    param.append("videoType", videoType);
-    param.append("fileSize", file.size);
-    param.append("fileName", file.name); */
 
     Cookie.set("videoName", videoTitle);
     Cookie.set("videoType", videoType);
@@ -167,20 +170,6 @@ export default class UploadVideo{
       console.log("error",error);
     })
 
-
-
-    // instance.post(window.config.host + '/api/video/upload?name=' + file.name + '&size=' + file.size, file)
-    /* instance.post(`${window.config.host}/api/video/upload?userName=${userName}&videoName=${videoTitle}&fileSize=${file.size}&fileName=${file.name}`,file) */
-/*     instance.post(window.config.host + "/api/video/upload", {
-      userName: userName,
-      videoName: videoTitle,
-      videoType: file.type,
-      fileSize: file.size,
-      fileName: file.name,
-      // file,
-    }).then(resp => {
-      console.log("videoUpload",resp);
-    }) */
   }
 
 

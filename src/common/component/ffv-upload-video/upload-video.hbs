@@ -8,16 +8,16 @@
     </nav>
 
     <div class="form-view">
-      <div class="from-box">
+      <div class="form-box">
         <ul>
           <li class="video-name-list">
-            <span class="input-title">视频标题：</span>
-            <input class="video-name-input" type="text">
+            {{!-- <span class="input-title">视频标题：</span> --}}
+            <input class="video-name-input" type="text" placeholder="视频标题">
           </li>
           <li class="video-type-list">
-            <span class="input-title">视频类别：</span>
+            {{!-- <span class="input-title">视频类别：</span> --}}
             <select class="video-type-select">
-              <option value="">-未选择-</option>
+              <option value="">-请选择视频类别-</option>
               <option value="movie">影视</option>
               <option value="anime">动漫</option>
               <option value="music">音乐</option>
@@ -30,9 +30,16 @@
           </li>
         </ul>
       </div>
-      <div class="drag-box" draggable="true">将视频拖拽到这里上传</div>
+      <div class="drag-box" draggable="true">
+        <p>将视频拖拽到这里上传</p>
+      </div>
       <div class="preview-box"></div>
       <div class="upload-submit-btn">上传</div>
+    </div>
+
+    <div class="while-update hide">
+      <div class="load-animation"></div>
+      <div id="progress-box" class="progress-an"></div>
     </div>
 
   </div>

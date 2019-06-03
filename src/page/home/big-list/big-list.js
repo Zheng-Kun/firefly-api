@@ -18,10 +18,13 @@ export default class BigList{
   }
 
   _render(){
-    for(let i in this.videoTypeObj){
+    let index = 0;
+    for(let key in this.videoTypeObj){
+      index++;
       new VideoListBig({
         $container: $("#video-list-box"),
-        videoType: i,
+        videoType: key,
+        order: index
       })
     }
   }

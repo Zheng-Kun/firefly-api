@@ -8,6 +8,7 @@ export default class VideListBig{
     Object.assign(this, {
       $container: null,
       videoType: null,
+      order: null,
     }, props)
     this.videoTypeObj = {
       movie: "影视",
@@ -38,9 +39,19 @@ export default class VideListBig{
       // console.log(this.videoType, resp.data.data);
       let listDom  = template({...this});
       let boxDom = document.createElement("div");
-      boxDom.setAttribute("class",this.videoType);
+      boxDom.setAttribute("class",this.videoType + " type-box");
+      boxDom.style.order = this.order;
       boxDom.innerHTML = listDom;
+      let coverDoms = boxDom.querySelectorAll(".cover");
+      for (let i = coverDoms.length - 1; i >=0; i --){
+        coverDoms[i].style.backgroundColor = this._getRandomColor();
+      }
+
       this.container.appendChild(boxDom);
     })
+  }
+
+  _getRandomColor(){
+    return "rgb(" + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + ',' + Math.round(Math.random() * 10) + ')';
   }
 }
