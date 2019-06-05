@@ -73,7 +73,7 @@ module.exports = {
     // 实际上传文件
     uploadVideo.single('file')(progress, res, next);
 
-    console.log("body:",req.body)
+    // console.log("body:",req.body)
     console.log("req-end 前")
     req.on("end", () => {
       console.log("req-end事件触发");
@@ -98,7 +98,7 @@ module.exports = {
       })
       
     })
-    console.log("req-end 后")
+    // console.log("req-end 后")
     res.cookie("videoName", "");
     res.cookie("videoType", "");
     return res.json({

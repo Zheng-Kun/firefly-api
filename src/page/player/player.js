@@ -3,6 +3,8 @@ import Config from "../../common/component/fe-config"
 import Header from "../../common/component/ffv-header/header"
 import Alert from "../../common/component/ffv-alert/alert";
 import VideoPlayer from "./video-player/video-player"
+
+import "./player.less"
 export default class Player{
   constructor() {
     this.$headerContainer = $("#header-box");

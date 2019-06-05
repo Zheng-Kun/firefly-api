@@ -1,4 +1,12 @@
-<video id="ff-video-el" class="video-js vjs-default-skin" controls preload="none" width="1060" height="500"
-  poster="http://vjs.zencdn.net/v/oceans.png">
+<h2 class="video-title">
+  <span class="title-text">{{videoName}}</span>
+  <span class="video-count"><i class="title-hot-icon"></i>{{viewCounts}}</span>
+</h2>
+
+<video id="ff-video-el" class="video-js vjs-default-skin" preload="auto" controls width="1160" height="600" poster="" data-setup="{}">
   <source src={{videoUrl}} type="rtmp/flv">
+  <p class="vjs-no-js">播放视频需要启用 JavaScript，推荐使用支持HTML5的浏览器访问。
+    To view this video please enable JavaScript, and consider upgrading to a web browser that
+    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
 </video>
