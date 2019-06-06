@@ -1,0 +1,35 @@
+.video-nav-box{
+  position: fixed;
+  top: 500px;
+  right: 50px;
+  width: 60px;
+  // background-color: rgba(255,255,255,0.4);
+  background-color: #f6f9fa;
+  border-radius: 2px;
+  border: 1px solid #e5e9ef;
+  .nav-li{
+    cursor: pointer;
+    text-align: center;
+    color: black;
+    line-height: 2;
+    font-size: 16px;
+    &.selected,&:hover{
+      color: white;
+      background-color: #3fa9f5;
+    }
+  }
+  .to-top{
+    cursor: pointer;
+    border-top: 1px solid #e5e9ef;
+    width: 60px;
+    height: 60px;
+    background-image: url("../../../static/icon/to-top-blue.png");
+    background-position: center center;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    &:hover{
+      background-color: #3fa9f5;
+      background-image: url("../../../static/icon/to-top-white.png");
+    }
+  }
+}

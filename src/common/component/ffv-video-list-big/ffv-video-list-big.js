@@ -9,6 +9,7 @@ export default class VideListBig{
       $container: null,
       videoType: null,
       order: null,
+      done: ()=>{}
     }, props)
     this.videoTypeObj = {
       movie: "影视",
@@ -48,7 +49,10 @@ export default class VideListBig{
       }
 
       this.container.appendChild(boxDom);
+      this.done()
     })
+
+
   }
 
   _getRandomColor(){
