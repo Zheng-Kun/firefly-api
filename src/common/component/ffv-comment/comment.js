@@ -28,7 +28,7 @@ export default class Comment{
         this.data[i]["createTime"] = this._parseDate(this.data[i]["createTime"]).fullDateTime;
       }
       let elComment = template({
-        data: this.data,
+        data: this.data.reverse(),
         commentCounts: commentCounts,
       });
       this.$container[0].innerHTML = elComment;
