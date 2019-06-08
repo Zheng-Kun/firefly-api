@@ -18,12 +18,6 @@ export default class Comment{
   }
 
   _render(){
-    if(!this.author){
-      new Alert({
-        message: "请登陆后再评论",
-        type: "error"
-      })
-    }
     axios.post(window.config.host + '/api/comment/getComment', {
       vid: this.vid
     }).then(resp => {
