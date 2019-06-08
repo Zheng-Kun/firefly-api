@@ -85,7 +85,13 @@ export default class Comment{
         document.querySelector("#comment-box .comment-list").insertBefore(elLi, document.querySelector("#comment-box .comment-list").children[0]);
 
         document.querySelector("#comment-box .comment-input").value = "";
-        document.querySelector("#comment-box .empty-content").style.display = "none";
+
+        if (document.querySelector("#comment-box .empty-content")){
+          document.querySelector("#comment-box .empty-content").style.display = "none";
+        }
+
+        let commentCounts =  Number(document.querySelector("#comment-box .comment-counts").innerText) + 1;
+        document.querySelector("#comment-box .comment-counts").innerText = commentCounts;
 
       })
     })
