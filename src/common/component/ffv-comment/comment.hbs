@@ -1,10 +1,15 @@
 <div id="comment-box">
   <div class="comment-input-box">
     <span class="comment-icon"></span>
-    <input type="text" class="comment-input">
-    <span class="comment-commit-btn">发表评论</span>
+    <input type="text" class="comment-input" placeholder="发个评论和大家一起讨论吧">
+    <span class="comment-commit-btn">发送</span>
   </div>
   <div class="comment-show-box">
+    <h3 class="comment-title">
+      <i class="comment-show-icon"></i>
+      <span class="title-text">评论</span>
+      <span class="comment-counts">{{commentCounts}}</span>
+    </h3>
     <ol class="comment-list">
       {{#each data}}
       <li class="comment-item">
@@ -17,7 +22,7 @@
       </li>
       {{else}}
       <li class="empty-content">
-        还没人呢，快去抢个沙发把
+        <p>还没人呢，快去抢个沙发吧</p>
       </li>
       {{/each}}
     </ol>

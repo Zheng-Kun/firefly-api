@@ -18,6 +18,7 @@ export default class Player{
     // 环境变量配置
     new Config({
       env: "pro",
+      // env: 'dev'
     });
 
     console.log("render player page!!!")
