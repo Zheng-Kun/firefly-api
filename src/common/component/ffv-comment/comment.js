@@ -112,7 +112,7 @@ export default class Comment{
     dateObj.month = str.substr(5, 2);
     dateObj.day = str.substr(8, 2);
 
-    dateObj.hour = Number(str.substr(11, 8).split(":")[0]) + 8;
+    dateObj.hour = (Number(str.substr(11, 8).split(":")[0]) + 8)%24;
     dateObj.minute = str.substr(11, 8).split(":")[1];
     dateObj.second = str.substr(11, 8).split(":")[2];
 
