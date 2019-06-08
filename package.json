@@ -9,9 +9,7 @@
     "pack": "webpack",
     "start-o": "node ./bin/www",
     "forever-start": "forever start ./bin/www",
-    "forever-stop": "forever stop ./bin/www",
-    "forever-restart": "",
-    "forever-start-w": "forever start -w ./bin/www"
+    "forever-stop": "forever stop ./bin/www"
   },
   "author": "Zhengkun",
   "license": "ISC",
