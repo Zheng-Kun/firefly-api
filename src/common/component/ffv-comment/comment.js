@@ -12,7 +12,7 @@ export default class Comment{
     Object.assign(this, {
       $container: null,
     }, props);
-    this.author = Cookie.get("un");
+    // this.author = Cookie.get("un");
     this.vid = this._getSearchObj().vid;
     this._render()
   }
@@ -40,6 +40,7 @@ export default class Comment{
   _bind(){
     document.querySelector("#comment-box .comment-commit-btn").addEventListener("click", ev => {
       let content = document.querySelector("#comment-box .comment-input").value;
+      this.author = Cookie.get("un");
       if (!this.author) {
         new Alert({
           message: "游客无法评论喔，请先登陆",
