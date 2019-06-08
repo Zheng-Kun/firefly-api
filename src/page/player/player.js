@@ -3,6 +3,7 @@ import Config from "../../common/component/fe-config"
 import Header from "../../common/component/ffv-header/header"
 import Alert from "../../common/component/ffv-alert/alert";
 import VideoPlayer from "./video-player/video-player"
+import Comment from "../../common/component/ffv-comment/comment"
 
 import "./player.less"
 export default class Player{
@@ -41,6 +42,11 @@ export default class Player{
      })
 
 
+     let comment = new Comment({
+       $container: $("#comment-big-box")
+     })
+
+
     // new Alert();
 
 
@@ -57,6 +63,7 @@ export default class Player{
     }
     return obj;
   }
+
 }
 
 new Player();

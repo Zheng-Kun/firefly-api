@@ -1,7 +1,6 @@
 let mongoose = require("mongoose");
 
 let commentSchema = new mongoose.Schema({
-  // 用户名
   content: {
     type: String,
     require: true,
@@ -18,9 +17,9 @@ let commentSchema = new mongoose.Schema({
     require: true,
   },
   position: {
-    type: Int,
+    type: Number,
     default: 0,
-  }
+  },
 
   // 评论时间
   createTime: {
@@ -32,4 +31,4 @@ let commentSchema = new mongoose.Schema({
 })
 
 // 生成模型
-let User = mongoose.model("User", userSchema);
+let Comment = mongoose.model("Comment", commentSchema);

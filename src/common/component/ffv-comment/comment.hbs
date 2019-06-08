@@ -1,0 +1,26 @@
+<div id="comment-box">
+  <div class="comment-input-box">
+    <span class="comment-icon"></span>
+    <input type="text" class="comment-input">
+    <span class="comment-commit-btn">发表评论</span>
+  </div>
+  <div class="comment-show-box">
+    <ol class="comment-list">
+      {{#each data}}
+      <li class="comment-item">
+        <p>
+          <span class="comment-avatar"></span>
+          <span class="comment-author">{{author}}</span>
+          <span class="comment-time">{{createTime}}</span>
+        </p>
+        <p class="comment-content">{{content}}</p>
+      </li>
+      {{else}}
+      <li class="empty-content">
+        还没人呢，快去抢个沙发把
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+
+</div>

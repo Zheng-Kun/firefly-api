@@ -37,7 +37,6 @@ module.exports = function () {
   // app.use(express.static("src"));
   app.use(busboy());
   // 前端路由
-  
   require("../routes/all.fe.routes")(app);
   // 后端接口路由
   require('../app/routes/all.api.routes')(app,io);
