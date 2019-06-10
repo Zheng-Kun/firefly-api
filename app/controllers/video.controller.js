@@ -93,7 +93,7 @@ module.exports = {
             message: "服务端错误，保存视频失败"
           })
         }
-        console.log("save 没问题")
+        console.log("test");
         
       })
       
