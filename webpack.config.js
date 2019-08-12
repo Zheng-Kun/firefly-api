@@ -16,6 +16,8 @@ module.exports = {
   entry: { //入口文件
     home: './src/page/home/home.js',
     player: "./src/page/player/player.js",
+    hqqfront: './src/page/hqqfront/hqqfront.js',
+    hqqback: './src/page/hqqback/hqqback.js'
   },
   output: { //出口
     filename: "[name].bundle.js", // 打包后的文件名

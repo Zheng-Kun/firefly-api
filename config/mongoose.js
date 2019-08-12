@@ -13,7 +13,8 @@ module.exports = function () {
   // 导入 model
   require('../app/models/user.model');
   require('../app/models/video.model');
-  require("../app/models/comment.model")
+  require("../app/models/comment.model");
+  require('../app/models/hqqmsg.model');
 
   return db;
 };
