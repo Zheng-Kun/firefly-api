@@ -26,10 +26,6 @@ module.exports = {
       return res.json({code: 200, message: '提交成功', data: null})
     })
   },
-  // 下载信息
-  downLoadExcel: function(res, req, next) {
-    
-  },
   // 通过id删除信息 // 参数为数组
   delMsgById: function(res, req, next) {
     const {delIdArr} = req.body;
