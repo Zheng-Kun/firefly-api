@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log( \"hqqfront\")\n\n//# sourceURL=webpack:///./src/page/hqqfront/hqqfront.js?");
+eval("console.log(\"hqqfront\");\n\n//# sourceURL=webpack:///./src/page/hqqfront/hqqfront.js?");
 
 /***/ })
 

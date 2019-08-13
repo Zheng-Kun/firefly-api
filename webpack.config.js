@@ -28,21 +28,26 @@ module.exports = {
     rules: [
       {
         test: /\.(less|css)$/,
+        // exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'less-loader']
       }, {
         test: /\.hbs$/,
         loader: 'handlebars-loader'
       }, {
         test: /\.(png|jpg|jpeg|gif)$/,
+        // exclude: /node_modules/,
         loader: 'url-loader?limit=8192'
       },
       {
         test: /\.(swf|ttf|eot|svg|woff(2))(\?[a-z0-9]+)?$/,
+        // exclude: /node_modules/,
         loader: 'file-loader'
       },
       {
         test: /\.(js|jsx)$/,
-        loader:  ['babel?presets[]=es2015,presets[]=react,presets[]=stage-0']
+        exclude: /node_modules/,
+        // loaders:  ['babel?presets[]=es2015,presets[]=react,presets[]=stage-0']
+        loader: 'babel-loader'
       }
     ],
   },

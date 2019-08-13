@@ -48,17 +48,12 @@ module.exports = {
     }
     const formConf = HqqMsg({formDesc, formArgumentArr,  myKey: "hqqFormConf"})
     HqqMsgConf.findOne({myKey: "hqqFormConf"}, function(err, doc) {
-      if (err) {
-        return next(err);
-      }
+      if(err) { return res.json({code: 603, message: "服务端错误，获取表单信息失败"})}
       if(doc) {
         HqqMsgConf.update({myKey: 'hqqFormConf'}, {$set: {formDesc, formArgumentArr}})
         return res.json({code: 200, message: '配置保存成功'})
       } else {
         formConf.save((err, doc) => {
-          if (err) {
-            return next(err);
-          }
           if(err) {return res.json({code: 603, message: "服务端错误，保存用户信息失败"})}
           return res.json({code: 200, message: '配置保存成功'})
         })
@@ -69,9 +64,7 @@ module.exports = {
   // 获取表单配置
   getFormConf: function(res, req, next) {
     HqqMsgConf.findOne({myKey: "hqqFormConf"}, function(err, doc) {
-      if (err) {
-        return next(err);
-      }
+      if(err) { return res.json({code: 603, message: "服务端错误，获取表单信息失败"})}
       if(doc) {
         return res.json({code: 200, message: '配置保存成功', data: doc})
       } else {
