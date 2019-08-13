@@ -6,6 +6,8 @@ module.exports = {
   // 获取所有信息
   getHqqMsgList: function(res, req, next){
     HqqMsg.find({}, function (err, doc) {
+      if(err) { return res.json({code: 603, message: "服务端错误，获取信息失败"})}
+
       if(doc && doc.length > 0) {
         return res.json({
           code: 200,
@@ -39,6 +41,7 @@ module.exports = {
   },
   // 设置表单配置
   setFormConf: function(res, req, next) {
+    console.log("设置表单配置")
     const {formDesc, formArgumentArr } = req.body;
     if(!formDesc || !formArgumentArr || formArgumentArr.length < 1) {
       return res.json({code: "610", message: "表单描述与表单参数不能为空"})
