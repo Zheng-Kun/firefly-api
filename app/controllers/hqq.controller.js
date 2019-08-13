@@ -42,6 +42,7 @@ module.exports = {
   // 设置表单配置
   setFormConf: function(res, req, next) {
     console.log("设置表单配置")
+    console.log(req.body)
     const {formDesc, formArgumentArr } = req.body;
     if(!formDesc || !formArgumentArr || formArgumentArr.length < 1) {
       return res.json({code: "610", message: "表单描述与表单参数不能为空"})
