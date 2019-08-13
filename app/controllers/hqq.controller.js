@@ -4,7 +4,7 @@ var HqqMsgConf = mongoose.model('hqqMsgConf')
 
 module.exports = {
   // 获取所有信息
-  getHqqMsgList: function(res, req, next){
+  getHqqMsgList: function(req, res, next){
     HqqMsg.find({}, function (err, doc) {
       if(err) { return res.json({code: 603, message: "服务端错误，获取信息失败"})}
 
@@ -17,7 +17,7 @@ module.exports = {
       }
     })
   },
-  addMessage: function(res, req, next) {
+  addMessage: function(req, res, next) {
     const {name, tell, company, office, qq, weChat, email, other } = req.body;
     if(!name){
       res.json({code: 602, message: 'name 字段为必填！'})
@@ -29,7 +29,7 @@ module.exports = {
     })
   },
   // 通过id删除信息 // 参数为数组
-  delMsgById: function(res, req, next) {
+  delMsgById: function(req, res, next) {
     const {delIdArr} = req.body;
     if(!delIdArr || delIdArr.length < 1){
       return res.json({code: 605, message: '_id不能为空'})
@@ -40,22 +40,23 @@ module.exports = {
     })
   },
   // 设置表单配置
-  setFormConf: function(res, req, next) {
+  setFormConf: function(req, res, next) {
     console.log("设置表单配置")
-    console.log(req.body)
-    const {formDesc, formArgumentArr } = req.body;
-    if(!formDesc || !formArgumentArr || formArgumentArr.length < 1) {
+    const {formDesc, formArgument } = req.body;
+    if(!formDesc || !formArgument || formArgument.length < 1) {
       return res.json({code: "610", message: "表单描述与表单参数不能为空"})
     }
-    const formConf = HqqMsg({formDesc, formArgumentArr,  myKey: "hqqFormConf"})
+    const formConf = HqqMsgConf({formDesc, formArgument,  myKey: "hqqFormConf"})
     HqqMsgConf.findOne({myKey: "hqqFormConf"}, function(err, doc) {
-      if(err) { return res.json({code: 603, message: "服务端错误，获取表单信息失败"})}
+      if(err) { return res.json({code: 603, message: "服务端错误，获取表单配置失败"})}
       if(doc) {
-        HqqMsgConf.update({myKey: 'hqqFormConf'}, {$set: {formDesc, formArgumentArr}})
-        return res.json({code: 200, message: '配置保存成功'})
+        HqqMsgConf.update({myKey: 'hqqFormConf'}, {$set: {formDesc, formArgument}}, (err, ) => {
+          if(err) { return res.json({code: 603, message: "服务端错误，更新表单配置失败"})}
+          return res.json({code: 200, message: '配置更新成功'})
+        })
       } else {
         formConf.save((err, doc) => {
-          if(err) {return res.json({code: 603, message: "服务端错误，保存用户信息失败"})}
+          if(err) {return res.json({code: 603, message: "服务端错误，保存表单配置失败"})}
           return res.json({code: 200, message: '配置保存成功'})
         })
       }
@@ -63,7 +64,7 @@ module.exports = {
     })
   },
   // 获取表单配置
-  getFormConf: function(res, req, next) {
+  getFormConf: function(req, res, next) {
     HqqMsgConf.findOne({myKey: "hqqFormConf"}, function(err, doc) {
       if(err) { return res.json({code: 603, message: "服务端错误，获取表单信息失败"})}
       if(doc) {

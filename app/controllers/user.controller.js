@@ -7,6 +7,7 @@ module.exports = {
    * 注册
    */
   register: function (req, res, next) {
+    console.log(req.body)
     const {userName, password} = req.body;
     if(!userName || !password){
       console.log(userName);

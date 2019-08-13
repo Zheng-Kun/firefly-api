@@ -30,7 +30,7 @@ export default{
   setFormConfig(props) {
     props = Object.assign({
       formDesc: '',
-      fromArgumentArr: [] // [[name, 1], [tell, 0], [company, -1]] // 1: 必填 0：选填 -1： 不展示
+      fromArgument: [] // [[name, 1], [tell, 0], [company, -1]] // 1: 必填 0：选填 -1： 不展示
     })
     return postJson('/api/hqqRouter/setFormConf', props)
   },
