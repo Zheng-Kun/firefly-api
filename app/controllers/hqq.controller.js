@@ -50,7 +50,7 @@ module.exports = {
     HqqMsgConf.findOne({myKey: "hqqFormConf"}, function(err, doc) {
       if(err) { return res.json({code: 603, message: "服务端错误，获取表单配置失败"})}
       if(doc) {
-        HqqMsgConf.update({myKey: 'hqqFormConf'}, {$set: {formDesc, formArgument}}, (err, ) => {
+        HqqMsgConf.update({myKey: 'hqqFormConf'}, {$set: {formDesc, formArgument}}, (err ) => {
           if(err) { return res.json({code: 603, message: "服务端错误，更新表单配置失败"})}
           return res.json({code: 200, message: '配置更新成功'})
         })
