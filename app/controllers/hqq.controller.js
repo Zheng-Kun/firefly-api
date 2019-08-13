@@ -39,17 +39,17 @@ module.exports = {
   },
   // 设置表单配置
   setFormConf: function(res, req, next) {
-    const {formDesc, formArgument } = req.body;
-    if(!formDesc || !formArgument) {
+    const {formDesc, formArgumentArr } = req.body;
+    if(!formDesc || !formArgumentArr || formArgumentArr.length < 1) {
       return res.json({code: "610", message: "表单描述与表单参数不能为空"})
     }
-    const formConf = HqqMsg({formDesc, formArgument,  myKey: "hqqFormConf"})
+    const formConf = HqqMsg({formDesc, formArgumentArr,  myKey: "hqqFormConf"})
     HqqMsgConf.findOne({myKey: "hqqFormConf"}, function(err, doc) {
       if (err) {
         return next(err);
       }
       if(doc) {
-        HqqMsgConf.update({myKey: 'hqqFormConf'}, {$set: {formDesc, formArgument}})
+        HqqMsgConf.update({myKey: 'hqqFormConf'}, {$set: {formDesc, formArgumentArr}})
         return res.json({code: 200, message: '配置保存成功'})
       } else {
         formConf.save((err, doc) => {

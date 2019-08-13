@@ -39,6 +39,10 @@ module.exports = {
       {
         test: /\.(swf|ttf|eot|svg|woff(2))(\?[a-z0-9]+)?$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.(js|jsx)$/,
+        loader:  ['babel?presets[]=es2015,presets[]=react,presets[]=stage-0']
       }
     ],
   },
