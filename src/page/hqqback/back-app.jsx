@@ -1,7 +1,13 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
+import ConfigFrom from './config-form/config-form'
 
 export default class BackApp extends Component{
   render() {
-    return <div>text React</div>
+    return (
+      <Fragment>
+        <div>test React</div>
+        <ConfigFrom />
+      </Fragment>  
+    )
   }
 } 

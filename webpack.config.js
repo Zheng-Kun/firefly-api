@@ -29,7 +29,12 @@ module.exports = {
       {
         test: /\.(less|css)$/,
         // exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        use: ['style-loader', 'css-loader', {
+          loader: 'less-loader',
+          options: {
+            javascriptEnabled: true
+          }
+        }],
       }, {
         test: /\.hbs$/,
         loader: 'handlebars-loader'
@@ -50,6 +55,9 @@ module.exports = {
         loader: 'babel-loader'
       }
     ],
+  },
+  resolve: {
+    extensions: ['.js','.jsx']
   },
   plugins: [
     new webpack.ProvidePlugin({
