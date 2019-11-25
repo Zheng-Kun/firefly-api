@@ -46,11 +46,11 @@ module.exports = {
     if(!formDesc || !formArgument || formArgument.length < 1) {
       return res.json({code: "610", message: "表单描述与表单参数不能为空"})
     }
-    const formConf = HqqMsgConf({formDesc, formArgument,  myKey: "hqqFormConf"})
-    HqqMsgConf.findOne({myKey: "hqqFormConf"}, function(err, doc) {
+    const formConf = HqqMsgConf({formDesc, formArgument,  myKey: "HQQBPL"})
+    HqqMsgConf.findOne({myKey: "HQQBPL"}, function(err, doc) {
       if(err) { return res.json({code: 603, message: "服务端错误，获取表单配置失败"})}
       if(doc) {
-        HqqMsgConf.update({myKey: 'hqqFormConf'}, {$set: {formDesc, formArgument}}, (err ) => {
+        HqqMsgConf.update({myKey: 'HQQBPL'}, {$set: {formDesc, formArgument}}, (err ) => {
           if(err) { return res.json({code: 603, message: "服务端错误，更新表单配置失败"})}
           return res.json({code: 200, message: '配置更新成功'})
         })
@@ -65,10 +65,10 @@ module.exports = {
   },
   // 获取表单配置
   getFormConf: function(req, res, next) {
-    HqqMsgConf.findOne({myKey: "hqqFormConf"}, function(err, doc) {
+    HqqMsgConf.findOne({myKey: "HQQBPL"}, function(err, doc) {
       if(err) { return res.json({code: 603, message: "服务端错误，获取表单信息失败"})}
       if(doc) {
-        return res.json({code: 200, message: '配置保存成功', data: doc})
+        return res.json({code: 200, message: '配置获取成功', data: doc})
       } else {
         return res.json({code: 604, message: '没有找到配置， 请联系网站维护人员添加配置'})
       }

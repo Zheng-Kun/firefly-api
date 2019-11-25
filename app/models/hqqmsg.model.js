@@ -41,6 +41,7 @@ let hqqMsgSchema = new mongoose.Schema({
 let hqqMsgConfSchema = new mongoose.Schema({
   myKey: {
     type: String,
+    default: "HQQBPL"
   },
   formDesc: {
     type: String,

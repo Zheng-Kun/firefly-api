@@ -16,7 +16,7 @@ module.exports = {
   entry: { //入口文件
     home: './src/page/home/home.js',
     player: "./src/page/player/player.js",
-    hqqfront: './src/page/hqqfront/hqqfront.js',
+    hqqfront: './src/page/hqqfront/hqqfront.jsx',
     hqqback: './src/page/hqqback/hqqback.js'
   },
   output: { //出口
@@ -29,7 +29,7 @@ module.exports = {
       {
         test: /\.(less|css)$/,
         // exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', {
+        use: ['style-loader', 'css-loader', 'postcss-loader',{
           loader: 'less-loader',
           options: {
             javascriptEnabled: true
@@ -51,7 +51,6 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        // loaders:  ['babel?presets[]=es2015,presets[]=react,presets[]=stage-0']
         loader: 'babel-loader'
       }
     ],
@@ -68,6 +67,4 @@ module.exports = {
       videojs: 'video.js'
     }),
   ],
-
-
 }
