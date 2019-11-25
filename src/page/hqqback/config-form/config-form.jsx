@@ -2,13 +2,14 @@ import React, {useState, useEffect} from "react"
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios'
+import {message} from 'antd'
 
 import {Drawer ,Form, Input, Icon, Radio, Button} from 'antd'
-const {TextArea} = Input
-console.log(ClassicEditor.builtinPlugins.map( plugin => plugin.pluginName ))
+// const {TextArea} = Input
+// console.log(ClassicEditor.builtinPlugins.map( plugin => plugin.pluginName ))
 
 export default function FormConfig() {
-  const [drawerVisible, setDrawerVisible] = useState(initialState);
+  const [drawerVisible, setDrawerVisible] = useState(false);
   const [formDesc, setFormDesc] = useState("")
   const [formArgument, setFormArgument] = useState(
     [
@@ -63,10 +64,22 @@ export default function FormConfig() {
     ]
   )
 
-  function showDrawer() {
-    this.setState({
-      drawerVisible: true
+  useEffect(() => {
+    axios.post(window.config.host + "/api/hqqRouter/getFormConf")
+    .then(resp => {
+      if(resp.data.code == 200){
+        message.success(resp.data.message)
+        setDrawerVisible(resp.data.data.formDesc)
+        setFormArgument(resp.data.data.formArgument)
+      } else {
+        message.error(resp.data.message)
+      }
+    }, err => {
+      message.error(resp.code)
     })
+  }, []);
+
+  function showDrawer() {
     setDrawerVisible(true)
   }
 
@@ -74,15 +87,36 @@ export default function FormConfig() {
     setDrawerVisible(false)
   }
 
-  function onSubmit() {
-
+  function changeConfig(key, value) {
+    const newConArr = JSON.parse(JSON.stringify(formArgument))
+    newConArr[formArgument.findIndex(item => item.key === key)]["type"] = value
+    setFormArgument(newConArr)
   }
 
+  function onSubmit() {
+    axios.post(window.config.host + "/api/hqqRouter/setFormConf", {
+      formDesc, formArgument
+    })
+    .then(resp => {
+      if(resp == 200){
+        message.success(resp.data.message)
+      } else {
+        message.error(resp.data.message)
+      }
+    }, err => {
+      message.error(resp.code)
+    })
+  }
+  
 
-  const itemConfig = this.state.formArgument.map(item => {
+  const itemConfig = formArgument.map(item => {
     return (
       <Form.Item label={item.cnName} key={item.key}>
-        <Radio.Group defaultValue={item.type} buttonStyle="solid">
+        <Radio.Group
+          value={item.type}
+          buttonStyle="solid"
+          onChange={(ev) => {changeConfig(item.key, ev.target.value)}}
+        >
           <Radio.Button value={1}>必填</Radio.Button>
           <Radio.Button value={0}>可选</Radio.Button>
           <Radio.Button value={-1} title="不会展示在表单中">不可见</Radio.Button>
@@ -100,9 +134,9 @@ export default function FormConfig() {
       sm: { span: 20 },
     },
   }
-    // console.log(itemConfig, this.state.formArgument)
+
   return (
-    <>
+    <div>
       <Button 
         type="primary" 
         shape="round"
@@ -135,7 +169,6 @@ export default function FormConfig() {
                 }
               }}
               onInit={ editor => {
-                // You can store the "editor" and use when it is needed.
                 console.log( 'Editor is ready to use!', editor );
                 console.log(Array.from( editor.ui.componentFactory.names() ));
               } }
@@ -166,15 +199,15 @@ export default function FormConfig() {
               zIndex: 1,
             }}
           >
-            <Button onClick={this.onSubmit.bind(this)} type="primary" htmlType="submit">
+            <Button onClick={onSubmit} type="primary" htmlType="submit">
               Submit
             </Button>
-            <Button onClick={this.closeDrawer.bind(this)} style={{ marginRight: 8 }}>
+            <Button onClick={closeDrawer} style={{ marginRight: 8 }}>
               Cancel
             </Button>
           </Form.Item>
         </Form>
       </Drawer>
-    </>
+    </div>
   )
 }
