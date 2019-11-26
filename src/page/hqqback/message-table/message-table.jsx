@@ -72,7 +72,7 @@ export default function MessageTable() {
 
 
   function deleteSelected() {
-    axios.post(window.config.host + "/api/hqqRouter/getHqqMsgList",{delIdArr: selectedIds}).then(resp => {
+    axios.post(window.config.host + "/api/hqqRouter/delMsgById",{delIdArr: selectedIds}).then(resp => {
       if(resp.data.code == 200){
         getMseList()
         message.success("删除成功")
