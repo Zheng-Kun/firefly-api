@@ -18,11 +18,11 @@ module.exports = {
     })
   },
   addMessage: function(req, res, next) {
-    const {name, tell, company, office, qq, weChat, email, other } = req.body;
+    const {name, tell, company, office, qq, weixin, email, other } = req.body;
     if(!name){
       res.json({code: 602, message: 'name 字段为必填！'})
     }
-    const newHqqMsg = HqqMsg({name, tell, company, office, qq, weChat, email, other});
+    const newHqqMsg = HqqMsg({name, tell, company, office, qq, weixin, email, other});
     newHqqMsg.save((err, doc) => {
       if(err) { return res.json({code: 603, message: "服务端错误，保存信息失败"})}
       return res.json({code: 200, message: '提交成功', data: null})
