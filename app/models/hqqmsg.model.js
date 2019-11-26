@@ -19,7 +19,7 @@ let hqqMsgSchema = new mongoose.Schema({
   qq: {
     type: String
   },
-  weChat: {
+  weixin: {
     type: String
   },
   email: {

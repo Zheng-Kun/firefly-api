@@ -36,7 +36,7 @@ module.exports = {
     }
     HqqMsg.remove({_id: { $in: delIdArr}}, function(err) {
       if(err) { return res.json({code: 603, message: "服务端错误，删除信息失败"})}
-      return res.json({code: 200, message: '提交成功'})
+      return res.json({code: 200, message: '删除成功！'})
     })
   },
   // 设置表单配置

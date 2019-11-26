@@ -5,6 +5,8 @@ import axios from 'axios'
 import {message} from 'antd'
 
 import {Drawer ,Form, Input, Icon, Radio, Button} from 'antd'
+
+import './config-form.less'
 // const {TextArea} = Input
 // console.log(ClassicEditor.builtinPlugins.map( plugin => plugin.pluginName ))
 
@@ -80,20 +82,20 @@ export default function FormConfig() {
     ]
   )
 
-  // useEffect(() => {
-  //   axios.post(window.config.host + "/api/hqqRouter/getFormConf")
-  //   .then(resp => {
-  //     if(resp.data.code == 200){
-  //       message.success(resp.data.message)
-  //       setFormDesc(resp.data.data.formDesc)
-  //       setFormArgument(resp.data.data.formArgument)
-  //     } else {
-  //       message.error(resp.data.message)
-  //     }
-  //   }, err => {
-  //     message.error(resp.code)
-  //   })
-  // }, []);
+  useEffect(() => {
+    axios.post(window.config.host + "/api/hqqRouter/getFormConf")
+    .then(resp => {
+      if(resp.data.code == 200){
+        message.success(resp.data.message)
+        setFormDesc(resp.data.data.formDesc)
+        setFormArgument(resp.data.data.formArgument)
+      } else {
+        message.error(resp.data.message)
+      }
+    }, err => {
+      message.error(resp.code)
+    })
+  }, []);
 
   function showDrawer() {
     setDrawerVisible(true)
@@ -156,10 +158,11 @@ export default function FormConfig() {
       <Button 
         type="primary" 
         shape="round"
+        size="large"
         icon="setting"
+        className="setting-btn"
         onClick={showDrawer}
       >
-        Setting
       </Button>
       <Drawer
         title="表单配置"
@@ -167,7 +170,7 @@ export default function FormConfig() {
         onClose={closeDrawer}
         visible={drawerVisible}
       >
-        <Form {...formItemLayout}>
+        <Form {...formItemLayout} className="form">
           <Form.Item label="描述">
             <CKEditor
               editor={ ClassicEditor }
@@ -203,6 +206,7 @@ export default function FormConfig() {
           </Form.Item>
           {itemConfig}
           <Form.Item
+            className="commit-item"
             style={{
               position: 'absolute',
               left: 0,
@@ -215,10 +219,10 @@ export default function FormConfig() {
               zIndex: 1,
             }}
           >
-            <Button onClick={onSubmit} type="primary" htmlType="submit">
+            <Button className="config-btn" onClick={onSubmit} type="primary" htmlType="submit">
               Submit
             </Button>
-            <Button onClick={closeDrawer} style={{ marginRight: 8 }}>
+            <Button className="config-btn" onClick={closeDrawer} style={{ marginRight: 8 }}>
               Cancel
             </Button>
           </Form.Item>
