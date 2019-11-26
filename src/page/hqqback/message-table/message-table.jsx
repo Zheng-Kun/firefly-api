@@ -1,12 +1,13 @@
-import React, {Component} from 'react'
-
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import {
   Table,
   Button,
-  Icon
+  Icon,
+  message
 } from 'antd'
 
-export default () => {
+export default function MessageTable() {
   const dataSource = [
     {
       name: "zhengkun",
@@ -30,6 +31,7 @@ export default () => {
       other: '其他'
     }
   ]
+  const [tableData, setTableData] = useState([])
   const columns = [
     {
       title: "姓名",
@@ -58,9 +60,6 @@ export default () => {
     }, {
       title: '提交时间',
       dataIndex: 'createTime'
-    }, {
-      title: '操作',
-      dataIndex: ''
     }
   ]
 
@@ -74,6 +73,18 @@ export default () => {
     }),
   }
 
+  useEffect(() => {
+    axios.post(window.config.host + "/api/hqqRouter/getHqqMsgList").then(resp => {
+      console.log(resp.data)
+      if(resp.data.code == 200){
+        setTableData(resp.data.data)
+      } else {
+        message.error(resp.data.message)
+      }
+    }, resp => {
+      message.error(resp.code)
+    })
+  }, []);
 
   return (
     <>
@@ -98,7 +109,8 @@ export default () => {
       <Table
         rowSelection={rowSelection}
         columns={columns}
-        dataSource={dataSource}
+        dataSource={tableData}
+        rowKey="_id"
       >
       </Table>
     </>

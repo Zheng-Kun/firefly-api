@@ -17,67 +17,83 @@ export default function FormConfig() {
         key: 'name',
         cnName: "姓名",
         type: 1,
-        icon: "user"
+        inputType: 'text',
+        icon: "user",
+        errorInfo: '请填写姓名'
       },
       {
         key: 'tell',
         cnName: "电话",
+        inputType: 'phone',
         type: 1,
-        icon: 'phone'
+        icon: 'phone',
+        errorInfo: '请填写11位号码'
       },
       {
         key: 'company',
         cnName: "公司/单位",
         type: 0,
-        icon: 'global'
+        inputType: 'text',
+        icon: 'global',
+        errorInfo: '请填写公司/单位'
       },
       {
         key: 'office',
         cnName: '职位',
         type: 0,
-        icon: 'solution'
+        inputType: 'text',
+        icon: 'solution',
+        errorInfo: '请填写职位'
       },
       {
         key: 'qq',
         cnName: 'QQ',
         type: 0,
-        icon: 'qq'
+        inputType: 'digit',
+        icon: 'qq',
+        errorInfo: '请填写QQ号码'
       },
       {
         key: 'weixin',
         cnName: '微信',
         type: 0,
-        icon: 'wechat'
+        inputType: 'text',
+        icon: 'wechat',
+        errorInfo: '请填写微信号'
       },
       {
         key: 'email',
         cnName: '邮箱',
         type: 0,
-        icon: 'mail'
+        inputType: 'email',
+        icon: 'mail',
+        errorInfo: '请填写正确的邮箱格式'
       },
       {
         key: 'other',
         cnName: '备注',
+        inputType: 'text',
         type: 0,
-        icon: 'smile'
+        icon: 'smile',
+        errorInfo: '请填写备注'
       }
     ]
   )
 
-  useEffect(() => {
-    axios.post(window.config.host + "/api/hqqRouter/getFormConf")
-    .then(resp => {
-      if(resp.data.code == 200){
-        message.success(resp.data.message)
-        setDrawerVisible(resp.data.data.formDesc)
-        setFormArgument(resp.data.data.formArgument)
-      } else {
-        message.error(resp.data.message)
-      }
-    }, err => {
-      message.error(resp.code)
-    })
-  }, []);
+  // useEffect(() => {
+  //   axios.post(window.config.host + "/api/hqqRouter/getFormConf")
+  //   .then(resp => {
+  //     if(resp.data.code == 200){
+  //       message.success(resp.data.message)
+  //       setFormDesc(resp.data.data.formDesc)
+  //       setFormArgument(resp.data.data.formArgument)
+  //     } else {
+  //       message.error(resp.data.message)
+  //     }
+  //   }, err => {
+  //     message.error(resp.code)
+  //   })
+  // }, []);
 
   function showDrawer() {
     setDrawerVisible(true)
