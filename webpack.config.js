@@ -31,20 +31,6 @@ module.exports = {
         test: /\.hbs$/,
         loader: 'handlebars-loader'
       },
-      /* {
-        test: require.resolve('jquery'),
-        loader: 'expose?jQuery!expose?$'
-      } ,*/
-      /* {
-        test: /\.js$/,
-        use: [{
-          loader: 'expose-loader',
-          options: 'jQuery'
-        }, {
-          loader: 'expose-loader',
-          options: '$'
-        }]
-      }, */
       {
         test: /\.(png|jpg|jpeg)$/,
         loader: 'url-loader?limit=8192'

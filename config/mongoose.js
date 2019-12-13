@@ -6,7 +6,7 @@ module.exports = function () {
   var db = mongoose.connect(config.mongodb, {
     useMongoClient: true,
   });
-  
+
   // 导入 model
   require('../app/models/user.model');
   require('../app/models/video.model');
