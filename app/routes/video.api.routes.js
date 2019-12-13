@@ -1,9 +1,12 @@
-var VideoController = require("../controllers/video.controller")
+let VideoController = require("../controllers/video.controller")
 
 let express = require("express");
-var router = express.Router();
+let router = express.Router();
 
-// 上传视频
-router.post("/upload",VideoController.upload);
+router.post("/upload", VideoController.upload);
+router.post("/getVideo", VideoController.getVideo);
+router.post("/getVideoList", VideoController.getVideoList);
+router.post("/getVideoListByType", VideoController.getVideoListByType);
+router.post("/getVideoListByAuthor", VideoController.getVideoListByAuthor);
 
 module.exports = router;

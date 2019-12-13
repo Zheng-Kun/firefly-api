@@ -1,0 +1,34 @@
+
+<h2 class="{{videoType}}-h">
+  <span class="type-icon {{videoType}}-icon"></span>
+  <span class="type-title">{{typeText}}</span>
+</h2>
+<ul class="video-ul">
+  {{#each data}}
+
+  <a href="/player?vid={{_id}}&videoType={{videoType}}" target="_blank">
+    <li class="video-li">
+      <div class="cover">
+        <span class="type-tag ">{{typeText}}</span>
+        <div class="bottom-author">
+          <span class="author">{{author}}</span>
+          <span class="view-count">{{viewCounts}}</span>
+        </div>
+        
+      </div>
+    
+      <div class="bottom-message">
+        <p class="video-name" title="{{videName}}">{{videoName}}</p>
+        <p class="update-message">
+          {{date}}
+        </p>
+      </div>
+    </li>
+  </a>
+
+  {{else}}
+  <div class="no-type-video">
+    <p>空空如也，快去上传一个吧</p>
+  </div>
+  {{/each}}
+</ul>

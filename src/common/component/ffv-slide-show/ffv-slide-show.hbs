@@ -1,0 +1,14 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {{#each data}}
+    <a class="swiper-slide" href="{{this.href}}" target="_blank">
+      <div class="swiper-item" style="background-image:url({{this.backgroundImg}})"></div>
+    </a>
+    {{/each}}
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next swiper-button"></div>
+  <div class="swiper-button-prev swiper-button"></div>
+</div>

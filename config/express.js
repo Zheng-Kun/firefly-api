@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 let busboy = require('connect-busboy');
+var formidable = require("formidable");
+var cookieParser = require('cookie-parser');
+
 
 
 module.exports = function () {
@@ -9,14 +12,24 @@ module.exports = function () {
   var app = express();
   console.log("direname:",__dirname)
 
-  const server = require('http').createServer(app);
+  const server = require('http').Server(app);
   const io = require('socket.io')(server);
+
+  // let io = req.app.get("sockitio");
+  const videoIo = io.
+  on('connection', () => {
+    /* … */
+    console.log("Socket已连接");
+  });
   app.set("socketio", io)
-
-
+  app.set("videoIo", videoIo)
   app.set('views', './views')
   app.set('view engine', 'pug')
+  app.use(cookieParser());
   app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
   app.use(express.static("dist"));
   // app.use(express.static("./dist"));
   // app.use(express.static("../dist"));
@@ -24,7 +37,6 @@ module.exports = function () {
   // app.use(express.static("src"));
   app.use(busboy());
   // 前端路由
-  
   require("../routes/all.fe.routes")(app);
   // 后端接口路由
   require('../app/routes/all.api.routes')(app,io);

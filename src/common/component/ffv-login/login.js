@@ -2,6 +2,7 @@ import elLogin from "./login.hbs";
 import "./login.less";
 import md5 from "md5";
 import axios from "axios";
+import Cookie from "js-cookie";
 import Alert from "../ffv-alert/alert";
 import Header from "../ffv-header/header";
 export default class Login{
@@ -15,7 +16,7 @@ export default class Login{
 
   _render(){
     this.$login = $(elLogin());
-    $(".body .login-bg").remove();
+    $("body .login-bg").remove();
     $("body").append(this.$login);
   }
 
@@ -55,7 +56,7 @@ export default class Login{
     /**
      * 注册事件
      */
-    $(".from-view .register .register-btn").on("click", ev => {
+    $(".form-view .register .register-btn").on("click", ev => {
       this._register();
     })
 
@@ -78,6 +79,14 @@ export default class Login{
     let md5Password = md5(md5(password));
     console.log(md5Password)
 
+    if (!username || !password) {
+      new Alert({
+        message: "用户名或密码不能为空",
+        type: "error"
+      })
+      return
+    }
+
     /**
      * 发送登录请求
      */
@@ -93,17 +102,66 @@ export default class Login{
           message: "登陆成功",
         });
 
+        Cookie.set("un",resp.data.data.userName);
         this._close();
         this._renderHeader();
 
-        //TODO render header
+      }else{
+        new Alert({
+          type: "error",
+          message: resp.data.message,
+        });
       }
     })
 
   }
 
   _register(){
+    console.log("注册");
+    /**
+     * 获取表单数据
+     */
+    let username = $(".login-register .register input.username").val();
+    let password = $(".login-register .register input.password").val();
+    console.log(username, password);
 
+    let md5Password = md5(md5(password));
+    console.log(md5Password)
+
+    if(!username || !password){
+      new Alert({
+        message: "用户名或密码不能为空",
+        type: "error"
+      })
+      return 
+    }
+
+    /**
+     * 发送登录请求
+     */
+    axios.post(window.config.host + '/api/user/register', {
+        userName: username,
+        password: md5Password,
+      })
+      .then(resp => {
+        console.log(resp);
+        if (resp.data.code == 200) {
+          new Alert({
+            type: "success",
+            message: "注册成功，请登陆",
+          });
+
+          // this._close();
+          // this._renderHeader();
+          document.querySelector(".login-bg .form-title .login-title").click();
+
+        } else {
+          new Alert({
+            type: "error",
+            message: resp.data.message,
+          });
+        }
+      })
   }
 
   _close(){

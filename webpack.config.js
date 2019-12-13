@@ -15,7 +15,9 @@ module.exports = {
   // 多入口与多出口
   entry: { //入口文件
     home: './src/page/home/home.js',
-    player: "./src/page/player/player.js"
+    player: "./src/page/player/player.js",
+    hqqfront: './src/page/hqqfront/hqqfront.jsx',
+    hqqback: './src/page/hqqback/hqqback.js'
   },
   output: { //出口
     filename: "[name].bundle.js", // 打包后的文件名
@@ -26,22 +28,44 @@ module.exports = {
     rules: [
       {
         test: /\.(less|css)$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        // exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'postcss-loader',{
+          loader: 'less-loader',
+          options: {
+            javascriptEnabled: true
+          }
+        }],
       }, {
         test: /\.hbs$/,
         loader: 'handlebars-loader'
+      }, {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        // exclude: /node_modules/,
+        loader: 'url-loader?limit=8192'
       },
       {
-        test: /\.(png|jpg|jpeg)$/,
-        loader: 'url-loader?limit=8192'
+        test: /\.(swf|ttf|eot|svg|woff(2))(\?[a-z0-9]+)?$/,
+        // exclude: /node_modules/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       }
     ],
+  },
+  resolve: {
+    extensions: ['.js','.jsx']
   },
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    })
+    }),
+    new webpack.ProvidePlugin({
+      videojs: 'video.js'
+    }),
   ],
 
 

@@ -36,6 +36,7 @@ let videoSchema = new mongoose.Schema({
   },
   viewCounts: {
     type: Number,
+    default:0
   }
 })
 
