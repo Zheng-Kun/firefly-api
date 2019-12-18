@@ -67,7 +67,4 @@ module.exports = {
       videojs: 'video.js'
     }),
   ],
-
-
 }
-// git 测试
