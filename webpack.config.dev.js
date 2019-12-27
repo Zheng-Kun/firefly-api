@@ -1,30 +1,44 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   // 模式
   mode: 'development',
   devServer: {
-    contentBase: path.resolve(__dirname, 'public/dev'),
-    hot: true
+    // contentBase: path.resolve(__dirname, 'public/dev'),
+    // inline: true, //实时刷新
+    hot: true, // 开启热更新,
+    // port: 6001, // 
+    // open: true, // 'Chrome' is 'Google Chrome' on macOS, 'google-chrome' on Linux and 'chrome' on Windows.
+    // progress: true,
+    // openPage: 'html/index.html'
   },
   devtool: 'inline-source-map',
   // 入口
   entry:{
-    home: './src/page/home/home.js',
-    player: './src/page/player/player.js',
-    hqqfront: './src/page/hqqfront/hqqfront.jsx',
-    hqqback: './src/page/hqqback/hqqback.js'
+    home: ['./src/page/home/home.js', 'webpack-hot-middleware/client?name=home&reload=true'],
+    player: ['./src/page/player/player.js', 'webpack-hot-middleware/client?name=player&reload=true'],
+    hqqfront: ['./src/page/hqqfront/hqqfront.jsx', 'webpack-hot-middleware/client?name=hqqfront&reload=true'],
+    hqqback: ['./src/page/hqqback/hqqback.js', 'webpack-hot-middleware/client?name=hqqback&reload=true'],
   },
   // 输出
   output: {
     filename: '[name]_[hash].js',
-    path: path.resolve(__dirname, 'public/dev')
+    path: path.resolve(__dirname, 'public/dev'),
+    publicPath: '/'
   }, 
   optimization: {
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          name: `common`, // 这个chunkName 需要写在  HtmlWebpackPlugin 插件的 chunks 数组中，才会被注入
+          // test: /[\\/]node_modules[\\/]/,
+          chunks: "initial"
+        },
+      }
     }
   },
 
@@ -36,14 +50,28 @@ module.exports = {
         // exclude: /node_modules/,
         include: [/antd-mobile/, /antd/, /src/, /swiper/, /normalize.css/, /video.js/],
         use: [
-          'style-loader',
+          // 'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../'
+            }
+          },
           {
             loader: 'css-loader',
             options: {
               // module: true, // 允许css module 的写法
+              importLoaders: 2
             }
           },
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                // path: 'postcss.config.js'
+              }
+            }
+          },
           {
             loader: 'less-loader',
             options: {
@@ -57,7 +85,15 @@ module.exports = {
         loader: 'handlebars-loader'
       }, {
         test: /\.pug$/,
-        loader: ['html-loader','pug-html-loader']
+        loader: [
+          'html-loader',
+          {
+            loader: 'pug-html-loader',
+            options: {
+              pretty: true // 不压缩html代码， 默认 false
+            }
+          }
+        ]
       },{
         test: /\.(png|jpg|jpeg|gif)$/,
         exclude: /node_modules/,
@@ -65,7 +101,8 @@ module.exports = {
         options: {
           name: '[name]_[hash].[ext]',
           outputPath: 'images',
-          limit: 8192 // 8Kb
+          // limit: 8192 // 8Kb
+          limit: 4096
         }
       },
       {
@@ -100,6 +137,34 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'styles/[name].css'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['home', 'common'],
+      filename: 'html/index.html',
+      hash: true,
+      template: './views/index.pug',
+      inject: 'body' // 注入的位置， 如果为false则不注入
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['player', 'common'],
+      filename: 'html/player.html',
+      hash: true,
+      template: './views/player.pug'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['hqqfront', 'common'],
+      filename: 'html/hqqfront.html',
+      hash: true,
+      template: './views/hqqfront.pug'
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['hqqback', 'common'],
+      filename: 'html/hqqback.html',
+      hash: true,
+      template: './views/hqqback.pug'
+    })
   ],
 } 

@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 let busboy = require('connect-busboy');
 var formidable = require("formidable");
 var cookieParser = require('cookie-parser');
+const ejs = require('ejs')
 
 
 
@@ -23,14 +24,16 @@ module.exports = function () {
   });
   app.set("socketio", io)
   app.set("videoIo", videoIo)
-  app.set('views', './views')
-  app.set('view engine', 'pug')
+  app.set('views', 'public/dev/html')
+  app.engine('.html', ejs.__express)
+  app.set('view engine', 'html')
   app.use(cookieParser());
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
     extended: true
   }));
-  app.use(express.static("dist"));
+  app.use(express.static("public/dev"));
+  // app.use(express.static("dist"));
   // app.use(express.static("./dist"));
   // app.use(express.static("../dist"));
   // app.use(express.static("../../dist"));

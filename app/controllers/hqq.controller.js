@@ -7,12 +7,17 @@ module.exports = {
   getHqqMsgList: function(req, res, next){
     HqqMsg.find({}, function (err, doc) {
       if(err) { return res.json({code: 603, message: "服务端错误，获取信息失败"})}
-
-      if(doc && doc.length > 0) {
+      if(doc) {
         return res.json({
           code: 200,
           message: '请求成功',
           data: doc
+        })
+      } else {
+        return res.json({
+          code: 666,
+          message: '其他错误，请联系网站管理员处理',
+          data: null
         })
       }
     })

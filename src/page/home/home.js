@@ -33,6 +33,7 @@ export default class Home{
     // 环境变量配置
     new Config({
       env: "pro",
+      // env: 'dev'
     });
 
     console.log("render home page!!!")

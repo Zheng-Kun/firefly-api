@@ -1,4 +1,4 @@
-console.log( "hqqfront")
+
 import axios from 'axios'
 import { List, InputItem, Toast, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
@@ -6,10 +6,12 @@ import React,{useState, useEffect} from 'react'
 import ReactDom from 'react-dom'
 import Config from '../../common/component/fe-config'
 import './hqqfrot.less'
+if (module.hot) { module.hot.accept() } // 热更新
 
 // 环境变量配置
 new Config({
   env: "pro",
+  // env: 'dev'
 });
 
 export default function HqqFront () {

@@ -6,6 +6,7 @@ import VideoPlayer from "./video-player/video-player"
 import Comment from "../../common/component/ffv-comment/comment"
 
 import "./player.less"
+if (module.hot) { module.hot.accept() } // 热更新
 export default class Player{
   constructor() {
     this.$headerContainer = $("#header-box");
