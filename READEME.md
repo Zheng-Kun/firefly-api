@@ -24,4 +24,17 @@
 ## login-box index 20
 
 
-## WEBPACK 升级
+## WEBPACK 打包优化 
+ - 支持devServer (通过`webpack-dev-middleware`,`webpack-hot-middleware` 和 `express` 实现)
+ - 将css单独打包
+ - 将公用部分单独打包为common
+ - 在项目根目录下 运行 `npm run server` 可开启本地服务，并具有热更新功能
+ - 开发环境单独配置
+ - 运行 `npm run build` 将文件打包为生成环境代码
+
+## TODO
+ - 全局变量的配置
+ - 使用 `babel` 编译代码为`ES5`
+ - `Docker`
+ - 将`webpack`配置文件改为动态配置 + `.yml`文件的格式
+ - 打包速度优化
