@@ -1,0 +1,13 @@
+entry:
+  home:
+    entry: './src/page/home/home.js'
+    template: './views/index.pug'
+  player:
+    entry: './src/page/home/home.js'
+    template: './views/player.pug'
+  hqqfront:
+    entry: './src/page/hqqfront/hqqfront.jsx'
+    template: './views/hqqfront.pug'
+  hqqback:
+    entry: './src/page/hqqback/hqqback.js'
+    template: './views/hqqback.pug'

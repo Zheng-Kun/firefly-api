@@ -14,7 +14,8 @@
     "forever-start": "forever start ./bin/www",
     "forever-stop": "forever stop ./bin/www",
     "forever-watch": "forever start ./bin/www -w",
-    "server": "node dev-server.js"
+    "server": "node dev-server.js",
+    "hh": "webpack --config ./build/webpack.common.js --env.NODE_ENV=development --progress"
   },
   "author": "Zhengkun",
   "license": "ISC",
@@ -72,6 +73,7 @@
     "handlebars-loader": "^1.7.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "js-yaml": "^3.13.1",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.8.2",

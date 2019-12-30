@@ -1,10 +1,7 @@
-
-var express = require("express");
-
 module.exports = function (app) {
   // 首页
   app.get("/index", (req, res) => {
-    res.render('index',{title:"FireFly Video", message: "I am Home Page"})
+    res.render('home',{title:"FireFly Video", message: "I am Home Page"})
   });
   // 视频播放页
   app.get("/player", (req, res) => {
@@ -26,5 +23,9 @@ module.exports = function (app) {
     res.render("hqqback", {
       title: "信息管理",
     })
+  })
+  app.get('/', function (req, res) {
+    console.log("RenderHome")
+    res.render('home')
   })
 }

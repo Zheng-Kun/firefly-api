@@ -1,16 +1,18 @@
 // import express from 'express'
 // import webpackDevServer from 'webpack-dev-middleware'
+process.env.NODE_ENV = 'production'
+
 const express = require('express')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const ejs = require('ejs')
 const app = express()
-const config = require('./webpack.config.dev.js')
+// const config = require('./webpack.config.dev.js')
+const config = require('./build/webpack.common')({NODE_ENV: 'development'})
 const compiler = webpack(config);
 
-
-// console.log(config)
+const router = require('./routes/all.fe.routes')
 
 app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
@@ -19,27 +21,13 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler, {
   
 }))
-// app.use(express.static("public/dev"));
+
+
 app.set('views', 'public/dev/html')
 app.engine('.html', ejs.__express)
 app.set('view engine','html')
 
-app.get('/index', function (req, res) {
-  res.render('index')
-})
-app.get('/player', function (req, res) {
-  res.render('player')
-})
-app.get('/hqqfront', function (req, res) {
-  res.render('hqqfront')
-})
-app.get('/hqqback', function (req, res) {
-  res.render('hqqback')
-})
-app.get('/', function (req, res) {
-  res.render('index')
-})
-
+router(app)
 
 app.listen(3100, function () {
   console.log('App is listening on port 3100! \n')
