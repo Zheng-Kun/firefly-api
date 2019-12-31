@@ -5,7 +5,9 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-
+const HappyPack = require('happypack')
+const os = require('os');
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 module.exports = env => {
   // console.log(env)
   const isProduction = env.NODE_ENV === 'production'
@@ -31,6 +33,10 @@ module.exports = env => {
       new CleanWebpackPlugin(),
       new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery'}),
       new MiniCssExtractPlugin({ filename: 'styles/[name].css'}),
+      new HappyPack({
+        id: 'js',
+        
+      })
     ]
     isDevelopment && plugins.push(new webpack.HotModuleReplacementPlugin())
     Object.keys(config.entry).forEach(item => {
@@ -107,7 +113,7 @@ module.exports = env => {
             {
               loader: 'pug-html-loader',
               options: {
-                pretty: true // 不压缩html代码， 默认 false
+                pretty: isDevelopment // 不压缩html代码， 默认 false
               }
             }
           ]
