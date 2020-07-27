@@ -1,7 +1,7 @@
 export default class Config{
   constructor(props){
     Object.assign(this,{
-      env: "dev", // pro
+      env: "pro", // pro // env
     },props)
 
     this._init();
